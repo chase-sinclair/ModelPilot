@@ -1,6 +1,6 @@
 # ModelPilot implementation plan
 
-**November 24, 2026 · Personal Windows pilot · Approved direction.** The owner approved the four milestones below and authorized evidence coverage and source permissions only (original Phase 1). That evidence pass is recorded in the [initial catalog and source permissions](../catalog/coverage.md). Phase 2 native feasibility, installs, inference allowances, spending and later milestones each need explicit authorization in their applicable scope.
+**November 25, 2026 · Personal Windows pilot · Approved through Phase 2.** The owner approved the four-milestone direction, accepted the [Phase 1 evidence register](../catalog/coverage.md) and the Phase 2 local findings, and will conduct the [two native smoke checks](ModelPilot-Native-Feasibility.md) manually. Both disposable copies are verified and staged. Milestone 2 awaits approval.
 
 Start with one canonical skill, structured source-linked intelligence, recommendation instructions and lightweight data utilities. Test native interaction early. Add targeted decision logic only if observed behavior warrants it. Deliver explicit key-free metadata refresh for personal V1.
 
@@ -13,7 +13,7 @@ The [product brief](../ModelPilot-Skill-V1-Codex-Handoff.md) and [architecture r
 | B1 · Advisory usefulness earns investment | Start with an exploratory comparison with ordinary web-enabled advice and the pinned Model Picker on each host. Prioritize useful actions, grounded uncertainty, manageable overhead and zero critical errors. An engine ablation is conditional. A later downstream study would be needed for savings or task outcomes. |
 | B2 · Two primary clients, one secondary check | Full validation on Codex Desktop for Windows and native Claude Code in a Windows terminal. A separate Codex CLI smoke result has its own label. Codex is the sole developer. Neither host is a dependency of the other. Other OSes, WSL, IDE and cloud surfaces have no acceptance claim. |
 | N1 · Data can change without a skill reinstall | Trusted local import is the first increment. V1 also needs an explicit key-free refresh of permitted metadata plus automatic **local** age checks during advice. Reviewed evidence can be imported independently. New identities start with unknown performance. No hosted service, background poll or network research during ordinary ModelPilot advice. |
-| N2 · Four initial inference turns, execution by separate approval | Plan for two per primary client, zero incremental spending, using included allowances only. Cap is total, including failed turns. CLI smoke, full native checks, comparative evaluation and repeats need separate allowances. The existing host still processes conversation context under its normal terms. |
+| N2 · Four initial inference turns | The owner approved two per primary client during Phase 2, including failed turns, using included allowances only at $0 incremental spend. The preflight used zero turns. Codex CLI smoke, full native checks, comparative evaluation and repeats need separate allowances. |
 | Scope and authority | Advise when invoked. Default to the current host and task. Honor next, effort only, explicit compare and explicit/configured cross-host intent. Suitability and risk precede efficiency. Staying, a reversible effort trial, conditional advice, or abstention can each be the best response. The developer makes any change. |
 | Deferred | Antigravity, UI, hooks, telemetry, auto-switching, quota inspection, user accounts, automatic context transfer, multi-agent orchestration, broad leaderboards and hosted infrastructure. Artificial Analysis data, API and MCP are excluded absent appropriate written rights and a new scope decision. [Data platform terms][aa] |
 
@@ -65,13 +65,13 @@ Run 1 found **zero matched same-model effort sweeps among 52 target-host entries
 | 3. Native validation, comparative evaluation and refinement | 6 · Required native behaviors and separate CLI smoke. 7 · Small comparative pilot. | Observed compatibility, paired advisory results, and a record of fixes or gaps. |
 | 4. Release packaging and portfolio documentation | 8 · Personal packages and reproducible documentation. | Supported client builds, install/update/remove instructions, notices and appropriately scoped claims. |
 
-Approve the next milestone as a unit where practical. Scoped installation, native inference, spending and external publication still need authorization. Phase 1 is the only approved engineering task in this amendment. The project can track material findings and approvals in the deliverables below without separate reports for each internal task.
+Approve the next milestone as a unit where practical. Later scoped installation, native inference, spending and external publication each need authorization. Track material findings and approvals in the milestone deliverables.
 
 ### Milestone 1 — Evidence validation and native feasibility
 
 **Phase 1 — Evidence coverage and source permissions.** The [initial catalog and source permissions](../catalog/coverage.md) documents two candidate identities per host, the owner-reported coverage counts, one bounded effort trial per host, and the limits on measurements and automated refresh. Both hosts have actionable guidance and an abstention boundary. Broader research is optional when a real decision requires it.
 
-**Phase 2 — Minimal native feasibility.** Request only the [exact project destinations and four-turn allowance](../catalog/coverage.md#permission-request-for-phase-2-native-feasibility). After authorization, prepare one tiny synthetic fixture, one canonical probe body and the two documented native invocation settings. In fresh, independent Codex Desktop and Claude Code on Windows sessions, submit one ordinary context setup and one explicit effort-only advisory prompt. Check that the ordinary turn did not invoke the skill and that the explicit invocation recalls the existing acceptance condition, stays on the requested model and gives advice without executing the task. Observe resource resolution and a fixed read-only Node marker if allowed. Record missing setting hints as unknown, script denial as a reduced mode, and keep individual results by build. Verify the fixture state and remove only the probe's verified files. CLI smoke and comparative evaluation need their own later allowance.
+**Phase 2 — Minimal native feasibility.** The owner approved the [exact project destinations and four-turn allowance](../catalog/coverage.md#permission-request-for-phase-2-native-feasibility). Both disposable packages passed local resource, Node, inventory and integrity checks and remain staged for owner use. The owner authorized saving Claude Code folder trust for the exact verified Claude probe directory. The [per-client record and manual prompts](ModelPilot-Native-Feasibility.md) cover the pending invocation, same-session context, permissions and advisory checks. The first automated preflight consumed zero turns.
 
 ### Milestone 2 — Functional skill and explicit refresh
 
@@ -115,9 +115,9 @@ A downstream study would need its own approval and budget. A possible design is 
 
 ## 6. Current decision and handoff
 
-The evidence pass supports an instructions-led pilot on both hosts. The next decision is whether to authorize the specific Phase 2 probe installations and four included-plan turns. See the [proposed permission scope](../catalog/coverage.md#permission-request-for-phase-2-native-feasibility). The smoke may use the owner's existing eligible settings. Record the actual selections and separate them from public catalog data.
+The evidence pass supports an instructions-led pilot on both hosts. The [manual native tests](ModelPilot-Native-Feasibility.md#manual-codex-desktop-check) are the next checkpoint before Milestone 2 approval. The Phase 2 allowance still has two turns available per client, subject to its included-usage and settings restrictions. Assess the incoming observations and verify both fixture copies before cleanup.
 
-Later milestones need their own approval. Record changed files, versions, material checks, gaps and any use of the authorized turn or spending cap with each milestone result. Keep native and evaluation findings wherever a future run can reproduce them.
+Keep the approved discovery refresh scope for the functional prototype. After the functional skill is built, revisit how to keep substantive performance and effort evidence current. That review is outside Phase 2 and does not gate native feasibility.
 [aa]: https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf
 [stet]: https://www.stet.sh/blog/gpt-55-codex-graphql-reasoning-curve
 [stet-table]: https://www.stet.sh/benchmarks/gpt-55-codex-graphql-reasoning-curve
