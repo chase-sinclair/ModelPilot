@@ -207,12 +207,14 @@ The read-only audit found the exact four staged files and five subdirectories, i
 
 ### Desktop closeout confirmations
 
+The owner accepted the technical pass and ended preliminary feasibility. The closeout values for the following items are still pending explicit confirmation.
+
 - **Permission state.** Confirm whether the helper approval was limited to the one invocation and whether any persistent tool rule was created. If a folder trust prompt appeared, confirm that any saved trust covered only the verified Desktop project.
 - **Prompt suggestions.** Confirm restoration of the original setting.
 - **Subscription use.** Confirm both submissions used included capacity, paid fallback was unavailable during the run, and incremental spend was $0.
 
 ## Recommendation for Milestone 2
 
-Milestone 1 has sufficient technical evidence to end preliminary feasibility. Phase 1 evidence coverage was accepted. The two Desktop runs verified the narrow advisory workflow on both hosts, and the Terminal runs provide positive observations with their protocol deviations recorded. Close the Desktop permission and billing record with owner confirmation. Recommend authorizing the instructions-led functional skill and explicit metadata refresh as the next milestone. Milestone 2 requires separate owner approval.
+Milestone 1 supplied sufficient technical evidence to end preliminary feasibility. The owner accepted Phase 1 evidence coverage and the two Desktop normal-flow passes, with the Terminal protocol deviations recorded. The owner separately authorized the instructions-led build and explicit metadata refresh in Milestone 2. [Implementation status](ModelPilot-Implementation-Plan.md#milestone-2--functional-skill-and-explicit-refresh)
 
 The owner approved deferring the clean Claude Terminal repeat to Milestone 3. On the release candidate, require a fresh two-turn Terminal sequence with the complete invocation, advisory-scope review and fixture integrity audit. Verify the exact bundled helper by observing native stdout in the Terminal client. An unavailable helper can exercise the reduced-mode fallback and leaves native execution verification open. Claude Terminal stays a primary release target. The Desktop result applies to local Desktop Code compatibility.

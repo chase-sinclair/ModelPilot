@@ -23,6 +23,8 @@
 
 **Coverage result.** Each host has two public model cards, guidance for both and one same-model trial candidate. Codex has **0 of 2** and Claude Code has **0 of 2** model cards with a matched, reusable native Windows effort comparison admitted by this pass. This is a count of evidence admitted for these four cards. The trials are recommendations based on guidance, to be judged against the user's existing success checks. No numerical performance, price or subscription-savings rows are admitted.
 
+The functional package ships the [reviewed cards](../skills/modelpilot/data/guidance.json) and an empty measurement set. Explicit discovery refresh and trusted local review are separate update paths. [Update workflow](../skills/modelpilot/references/data.md)
+
 ## Source permissions for the personal pilot
 
 | Source and artifact | Permitted use in the proposed personal pilot and attribution |
@@ -36,7 +38,7 @@
 
 ## Permission request for Phase 2 native feasibility
 
-**Phase 2 status, November 25, 2026.** The original check used five submissions against four approved. The wording-only Codex regression used three against two approved. Both Codex conflicting-input attempts failed advisory behavior. The Codex normal-flow test passed with two of two included-use submissions and all five hashes matching the baseline. The Claude Terminal repeat used three submissions against two approved, including an unintended interrupted invocation. Its four hashes matched and its two-turn verdict is inconclusive. The approved Claude Desktop check passed on two of two submissions with native Node stdout and all four fixture hashes matching. Its permission and billing confirmations are pending. The original scope request is preserved below. [Phase 2 results and Milestone 2 recommendation](../docs/ModelPilot-Native-Feasibility.md)
+**Phase 2 status, November 25, 2026.** The original check used five submissions against four approved. The wording-only Codex regression used three against two approved. Both Codex conflicting-input attempts failed advisory behavior. The Codex normal-flow test passed with two of two included-use submissions and all five hashes matching the baseline. The Claude Terminal repeat used three submissions against two approved, including an unintended interrupted invocation. Its four hashes matched and its two-turn verdict is inconclusive. The approved Claude Desktop check passed on two of two submissions with native Node stdout and all four fixture hashes matching. The owner concluded preliminary feasibility. Desktop permission and billing confirmations remain open. The original scope request is preserved below. [Phase 2 results and Milestone 2 decision](../docs/ModelPilot-Native-Feasibility.md)
 
 1. **Disposable installs and cleanup.** Authorize writing an original, minimal probe to the repository's `tests/native/` and installing only the named project copies below. Permit read-only version and file-hash checks, one small resource-location probe using the installed Node runtime per advisory turn if the host allows it, and removal of the two verified probe copies and their owned scratch files. Use fresh project sessions and the native manual-invocation setting on each copy. [Codex skills][codex-skills] · [Claude Code skills][claude-skills]
 

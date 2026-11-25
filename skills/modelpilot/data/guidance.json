@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "cards": [
+    {
+      "host": "codex",
+      "provider": "openai",
+      "modelId": "gpt-6.2-sol",
+      "label": "GPT-6.2 Sol",
+      "native": {
+        "minimumClient": "0.166.0",
+        "efforts": ["low", "medium", "high", "xhigh", "max"],
+        "source": {
+          "title": "Pinned Codex native catalog",
+          "url": "https://github.com/openai/codex/blob/581161ab41e643d942e1e1b5f561034060bf18e3/codex-rs/models-manager/models.json",
+          "reviewedOn": "2026-11-24"
+        }
+      },
+      "guidance": {
+        "fit": "Everyday coding, scoped implementation, and work with a clear verification step.",
+        "effort": "For a bounded task, try High from Extra High if available. Consider Medium when the work has a clear plan and check. The picker may call Low Light.",
+        "source": {
+          "title": "Codex model and reasoning-effort guidance",
+          "url": "https://learn.chatgpt.com/docs/models#pick-a-reasoning-effort",
+          "reviewedOn": "2026-11-24"
+        }
+      }
+    },
+    {
+      "host": "codex",
+      "provider": "openai",
+      "modelId": "gpt-6.2-astra",
+      "label": "GPT-6.2 Astra",
+      "native": {
+        "minimumClient": "0.166.0",
+        "efforts": ["low", "medium", "high", "xhigh", "max"],
+        "source": {
+          "title": "Pinned Codex native catalog",
+          "url": "https://github.com/openai/codex/blob/581161ab41e643d942e1e1b5f561034060bf18e3/codex-rs/models-manager/models.json",
+          "reviewedOn": "2026-11-24"
+        }
+      },
+      "guidance": {
+        "fit": "Demanding multistep coding, unresolved architecture tradeoffs, and difficult investigations.",
+        "effort": "Use a confirmed setting suited to the work. Consider higher effort when deeper analysis or checking would help. Ultra dispatches subagents and is outside these trials.",
+        "source": {
+          "title": "Codex model and reasoning-effort guidance",
+          "url": "https://learn.chatgpt.com/docs/models#pick-a-reasoning-effort",
+          "reviewedOn": "2026-11-24"
+        }
+      }
+    },
+    {
+      "host": "claude",
+      "provider": "anthropic",
+      "modelId": "claude-opus-5-5",
+      "label": "Claude Opus 5.5",
+      "native": {
+        "minimumClient": "2.1.280",
+        "efforts": ["low", "medium", "high", "xhigh", "max"],
+        "source": {
+          "title": "Claude Code native model configuration",
+          "url": "https://code.claude.com/docs/en/model-config#adjust-effort-level",
+          "reviewedOn": "2026-11-24"
+        }
+      },
+      "guidance": {
+        "fit": "Difficult or ambiguous work, especially when verification or edge cases matter.",
+        "effort": "Try Medium from High for one scoped task with an existing check if Medium is selectable. Keep adequate effort for harder verification.",
+        "source": {
+          "title": "Anthropic model and effort guidance",
+          "url": "https://claude.com/resources/articles/claude-model-and-effort-level-in-claude-code",
+          "reviewedOn": "2026-11-24"
+        }
+      }
+    },
+    {
+      "host": "claude",
+      "provider": "anthropic",
+      "modelId": "claude-sonnet-5-5",
+      "label": "Claude Sonnet 5.5",
+      "native": {
+        "minimumClient": "2.1.284",
+        "efforts": ["low", "medium", "high", "xhigh", "max"],
+        "source": {
+          "title": "Claude Code native model configuration",
+          "url": "https://code.claude.com/docs/en/model-config#adjust-effort-level",
+          "reviewedOn": "2026-11-24"
+        }
+      },
+      "guidance": {
+        "fit": "Routine, bounded engineering work with a reliable acceptance check.",
+        "effort": "Consider a confirmed level suited to the task when the exact model is available. Ultracode is outside these effort trials.",
+        "source": {
+          "title": "Anthropic model and effort guidance",
+          "url": "https://claude.com/resources/articles/claude-model-and-effort-level-in-claude-code",
+          "reviewedOn": "2026-11-24"
+        }
+      }
+    }
+  ]
+}
