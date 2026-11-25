@@ -36,7 +36,7 @@
 
 ## Permission request for Phase 2 native feasibility
 
-**Original approval and outcome, November 25, 2026.** The owner ran both primary clients. The manual run submitted five turns against the original cap of four, including one unintended interrupted Claude invocation. Codex changed its queued file and Claude's files passed the post-test hash check. Both copies are preserved pending approval for cleanup or replacement. See the [Phase 2 findings and next checkpoint](../docs/ModelPilot-Native-Feasibility.md).
+**Original outcome and Codex regression, November 25, 2026.** The owner submitted five turns against the original cap of four, including one unintended interrupted Claude invocation. Codex changed its queued file and Claude's files passed the post-test hash check. The owner separately authorized resetting the exact Codex copy, revising the probe wording and running up to two included-use Codex turns at $0 incremental spend. The revised Codex copy is staged with zero regression turns submitted. See the [Phase 2 findings and manual regression](../docs/ModelPilot-Native-Feasibility.md).
 
 1. **Disposable installs and cleanup.** Authorize writing an original, minimal probe to the repository's `tests/native/` and installing only the named project copies below. Permit read-only version and file-hash checks, one small resource-location probe using the installed Node runtime per advisory turn if the host allows it, and removal of the two verified probe copies and their owned scratch files. Use fresh project sessions and the native manual-invocation setting on each copy. [Codex skills][codex-skills] · [Claude Code skills][claude-skills]
 
