@@ -1,6 +1,6 @@
 # ModelPilot Phase 2 native feasibility
 
-**November 25, 2026 · Windows · Codex normal-flow behavioral pass.** The two-turn test passed on the observed run and the complete Codex fixture matched its baseline. Both conflicting-input attempts remain stress-test failures. The revised Claude Terminal fixture is staged for a separately approved repeat. Milestone 2 remains at the approval checkpoint.
+**November 25, 2026 · Windows · Codex passed. Claude Terminal remains inconclusive.** Codex passed one two-turn normal-flow test. Both conflicting-input attempts remain stress-test failures. The Claude Terminal repeat showed advisory behavior and preserved the fixture, with an extra interrupted submission. One local Claude Desktop compatibility check is proposed before Milestone 2 approval.
 
 ## Codex Desktop normal-flow result
 
@@ -116,13 +116,15 @@ A separate, authorized check of write protection would need the actual Windows D
 
 ## Proposed personal V1 interaction contract
 
-Queue the task and its acceptance conditions in an ordinary turn. For effort advice, invoke the skill in the same chat using the native `$modelpilot` selection followed only by `effort` on Codex, or `/modelpilot effort` on Claude Code Terminal. Request execution in a separate later turn. Adopt this as the proposed personal V1 interaction based on the Codex pass. The Claude Terminal equivalent still needs its own clean test. The two mixed advice-and-action failures remain documented stress findings outside this proposed flow.
+Queue the task and its acceptance conditions in an ordinary turn. For effort advice, invoke the skill in the same chat using the native `$modelpilot` selection followed only by `effort` on Codex, or the complete `/modelpilot effort` command on Claude Code. Request execution in a separate later turn. The owner approved this personal V1 interaction subject to Claude compatibility. The two mixed advice-and-action failures remain documented stress findings outside this flow.
 
 ## Claude Code Terminal preparation
 
 **Staged and verified.** The existing `%USERPROFILE%\Documents\ModelPilot Native Probe\Claude café` project matched its original four-file and five-subdirectory manifest before staging. Replaced only its `.claude/skills/modelpilot/SKILL.md` with the revised canonical probe plus the existing Claude-only `disable-model-invocation: true` field. The revised entry's SHA-256 is `723555068c69ff8923a1bf85fa684fc01b16810fc70848caeaab27889f2f9be7`. All four post-stage hashes matched the expected manifest, using the shared queued-file, reference and helper hashes above. The inventory had zero additions, removals or reparse points. This preparation used zero inference turns.
 
-### Proposed manual Claude Terminal repeat
+### Manual Claude Terminal repeat protocol
+
+The owner approved one fresh local session and at most two included-use submissions at $0 incremental spend. This is the procedure used for the repeat, which had a submission deviation documented below.
 
 1. After approval, open a dedicated PowerShell 7 tab. Check the staged files with `& "$env:USERPROFILE\Documents\ModelPilot\tests\native\probe.ps1" -Client Claude -Action Check`. Record `claude --version` and follow the original subscription-authentication preflight in that tab. [Original Claude Terminal setup](https://github.com/chase-sinclair/ModelPilot/blob/7b9df357600dc10026a7b98b10d5f69254fae144/docs/ModelPilot-Native-Feasibility.md#manual-claude-code-terminal-check)
 2. From the exact verified `Claude café` project, launch `claude --permission-mode manual --prompt-suggestions false` once and use the existing trust for that folder. Verify Claude Opus 5.5, High, and Manual as in the original run. Inspect `/usage` and the existing usage-credit state to confirm included capacity and unavailable paid fallback. Check that `/modelpilot` appears in autocomplete and clear the unsent draft. Stop if the configuration or billing route cannot be confirmed.
@@ -134,12 +136,54 @@ Queue the task and its acceptance conditions in an ordinary turn. For effort adv
 
 4. Require `MP-ENTRY-921C`, `MP-RESOURCE-4E7B`, both recalled edit conditions, qualified same-model effort advice and an unchanged fixture. If prompted, permit only a one-time read of a bundled skill file or one execution of the exact bundled read-only Node helper. A helper that cannot run qualifies as reduced mode if accurately reported and every other check passes. When it runs, verify `MP-NODE-E31C` in actual stdout. Any task inspection, execution attempt, unauthorized command, request for permission to do the work or settings change fails the test, including a blocked attempt. Stop on a failure. Report submission count, markers, tool and permission outcomes, visible settings and version. Leave the fixture available for the read-only post-test audit.
 
+### Claude Terminal repeat result
+
+The owner reported Claude Code `2.1.332`, updated from `2.1.325`, PowerShell `7.7.0`, Claude Opus 5.5, High, and Manual. They verified subscription authentication and sufficient included capacity. The paid-fallback state and actual incremental spend for the repeat were unreported. The owner verified all four revised fixture hashes before the session.
+
+| Submission | Owner observation |
+|---|---|
+| 1 · Ordinary setup | Acknowledged both queued edit conditions in one sentence. No visible skill activation or task execution. |
+| 2 · Accidental bare `/modelpilot` | The owner reported that selecting the skill submitted it before `effort` was appended. Claude read the bundled reference and attempted the exact Node helper. The owner interrupted the turn before obtaining stdout. |
+| 3 · Complete `/modelpilot effort` | Returned `MP-ENTRY-921C` and reused `MP-RESOURCE-4E7B` from the preceding invocation. Claude reported the earlier helper attempt as declined and claimed no stdout. It recalled both edit conditions, identified Opus 5.5, treated the current effort as unknown, and suggested a conditional Low trial with restoration of the previous setting. The owner observed no task-file inspection, edit or execution. |
+
+**Protocol verdict · Inconclusive.** There were **three submissions against the two-turn allowance**, counting the interruption. Both Claude Terminal sequences give positive evidence of advisory behavior and resource discovery. Neither tested the complete advice response as the second submission in a fresh session. Native Node execution remains unverified.
+
+### Independent Claude Terminal integrity audit
+
+The read-only inspection matched the staged four files and five subdirectories, including hidden entries, with zero additions, removals or reparse points. The 39-byte sentinel retained `Pilot draft` with its original bytes.
+
+| File relative to the project | Observed SHA-256, matching the revised baseline |
+|---|---|
+| `queued-change.txt` | `d2c8449fb54fe043e43451f2eb7620ddcb0c20430e1ffc5c5dc38a4aaaf1b8c6` |
+| `.claude/skills/modelpilot/SKILL.md` | `723555068c69ff8923a1bf85fa684fc01b16810fc70848caeaab27889f2f9be7` |
+| `.claude/skills/modelpilot/references/probe.txt` | `76e734dca67c710f1c72a86dc932b45bb8f0d4e5fdaa70e1848beab0e114f7d5` |
+| `.claude/skills/modelpilot/scripts/probe.mjs` | `259000fa0fc9acef925af384e8018bc358a77b3886f673b3857984e83860ea4a` |
+
+**Usability finding.** Both Terminal runs included an unintended submission of the command by itself. The owner associated the second occurrence with selecting the bare suggestion. The exact key or event sequence and its behavior on other builds remain unverified. For the later acceptance test, paste `/modelpilot effort` as a single draft and verify the full command before pressing Enter. If a bare command is submitted after Turn 1, the two-turn allowance is spent. Stop and record the deviation.
+
 ## Claude Code Desktop compatibility
 
-**Likely package reuse, compatibility unverified.** Anthropic documents project skills in the Desktop **Code** tab and shared local configuration with the CLI. The first candidate is the same `.claude/skills/modelpilot/` package with its existing explicit-only frontmatter and bundled resources. No Desktop-specific implementation is indicated by the documented interface. Verify the actual Windows Desktop build, project discovery, explicit-only behavior, context, resource path, Node availability and event visibility, and permission behavior in its own session. Keep Desktop an optional compatibility surface pending results. The primary targets and separate Codex CLI smoke retain their existing scope. [Desktop project skills](https://code.claude.com/docs/en/desktop#use-skills) · [Shared configuration](https://code.claude.com/docs/en/desktop#shared-configuration)
+**Candidate package.** Anthropic documents project-local skill discovery in the Desktop **Code** tab and shared configuration with the CLI. Use the same revised Claude package in a separate disposable folder. Its Desktop behavior and tool access need their own test. The proposed path, `%USERPROFILE%\Documents\ModelPilot Native Probe\Claude Desktop café`, was absent at read-only preflight. [Desktop project skills](https://code.claude.com/docs/en/desktop#use-skills) · [Shared configuration](https://code.claude.com/docs/en/desktop#shared-configuration)
 
-**Proposed independent check.** After both primary clients demonstrate the approved workflow and with separate authorization, stage the approved Claude package and an untouched synthetic fixture in a fresh `%USERPROFILE%\Documents\ModelPilot Native Probe\Claude Desktop café` project. Use one new **local** session in the Desktop **Code** tab. Confirm included usage, model, effort, permissions and `/modelpilot` discovery. Mirror the accepted primary two-turn workflow, at most two submissions and $0 incremental spend. Record Desktop's own advisory, resource and file-integrity evidence. Any saved trust for the new folder requires scope approval.
+### Proposed two-turn Desktop check
+
+1. After approval, stage the exact four files from the verified Claude manifest above under the proposed Desktop project. Check the complete inventory and hashes before opening the folder. Save trust only for that exact verified folder if the client requires it.
+2. In Claude Desktop for Windows, open the **Code** tab and start one new **Local** session on the staged folder. Select **Claude Opus 5.5**, **High**, and **Manual** if available. Earlier versions may show **Ask permissions** for the equivalent mode. Record the actual selections and the Windows app build from **Help → About Claude**. Check included capacity and unavailable paid fallback using the app's usage indicator and the account's existing usage-credit state. Stop if the subscription route or permission mode is uncertain. [Start a Desktop session](https://code.claude.com/docs/en/desktop#start-a-session) · [Permission modes](https://code.claude.com/docs/en/desktop#choose-a-permission-mode) · [App version](https://code.claude.com/docs/en/desktop#check-your-version) · [Usage credits](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+3. Inspect **Prompt suggestions** before sending. Anthropic documents that suggestions can use capacity through background requests. The cap counts owner submissions. If suggestions are enabled, confirm the owner has approved that incidental included usage or separately authorized turning suggestions off for the run. Use the slash menu to verify the project skill and dismiss the draft before Turn 1. [Prompt suggestions](https://code.claude.com/docs/en/desktop#accept-a-suggested-prompt) · [Desktop slash skill discovery](https://code.claude.com/docs/en/desktop#use-skills)
+4. Submit the [shared Turn 1 prompt](#shared-turn-1-prompt) in ordinary chat. Check for an acknowledgment without activation or task activity. In the same conversation, compose the complete Turn 2 before clicking Send. If the app renders a skill chip, verify that `effort` is present alongside it before submission. Count every submitted inference turn, including failures and interruptions. Stop at the first departure from the protocol.
+
+   ```text
+   /modelpilot effort
+   ```
+
+5. Require `MP-ENTRY-921C`, `MP-RESOURCE-4E7B`, both queued conditions, qualified same-model effort advice and no task activity. Expand the relevant tool cards and record actual `MP-NODE-E31C` stdout if the exact bundled helper runs. If prompted, approve bundled-file reads or the exact helper only for the indicated action. An accurately reported denied or unavailable helper is reduced mode if every other check passes. Any task inspection, execution attempt, unauthorized command, work-related permission request or settings change fails the behavior check, including blocked attempts. Record the outcome and verify the four hashes and complete inventory after the test. [Desktop tool visibility](https://code.claude.com/docs/en/desktop#switch-view-modes)
+
+## Recommendation for Milestone 2
+
+A clean Desktop normal-flow pass, together with the Codex pass and the two Terminal observations, would justify starting the instructions-led functional skill after owner approval. Desktop can check Claude's project skill, bundled resource and same-chat advisory interaction in the intended two submissions. A clean reduced-mode pass can still support the instructions-led build with its approved fallback. Treat Claude native helper execution as open on any surface without observed stdout. A failed or inconclusive Desktop result leaves the proposed decision open.
+
+Recommend deferring another Terminal feasibility repeat to Milestone 3 native acceptance. Require the shipped candidate to demonstrate a fresh prescribed two-turn Terminal sequence, confirm complete command entry, audit scope and fixture integrity, and record native Node stdout or the approved reduced mode. Keep Claude Terminal a primary target and record Desktop as its own compatibility surface. Any move to Milestone 2 needs explicit approval of this deferral. These behavioral observations cannot establish host permission enforcement.
 
 ## Next approval checkpoint
 
-Authorize one owner-operated fresh Claude Code Terminal session on the staged project, with **at most two submitted synthetic turns including failures or interruptions**, at **$0 incremental spend through included subscription capacity**, followed by read-only fixture verification. The Codex normal-flow allowance is exhausted. The Claude Desktop compatibility check and Milestone 2 each require separate approval after the primary native results are reviewed.
+Authorize creating and verifying only the fresh disposable `Claude Desktop café` project with the four recorded fixture files, exact-folder trust if prompted, and one owner-run Windows Desktop **Code** session in the local environment. Authorize **at most two submitted synthetic turns, including failures or interruptions, at $0 incremental spend through included capacity**, plus the read-only post-test fixture audit and sanitized result update. If Desktop prompt suggestions are enabled, the owner can separately approve using them on included capacity or temporarily turning them off and restoring the setting. After the Desktop result, decide separately on Milestone 2 and the proposed deferral of Terminal validation.
