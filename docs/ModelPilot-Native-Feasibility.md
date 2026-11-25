@@ -1,10 +1,25 @@
 # ModelPilot Phase 2 native feasibility
 
-**November 25, 2026 · Windows · Codex advisory regression failed.** The revised probe returned effort advice and left the entire Codex fixture intact. The owner observed task-file inspection and other commands outside the advisory scope. The original Claude terminal run remains inconclusive under the two-turn protocol. Further native testing and Milestone 2 require approval.
+**November 25, 2026 · Windows · Codex normal-flow behavioral pass.** The two-turn test passed on the observed run and the complete Codex fixture matched its baseline. Both conflicting-input attempts remain stress-test failures. The revised Claude Terminal fixture is staged for a separately approved repeat. Milestone 2 remains at the approval checkpoint.
+
+## Codex Desktop normal-flow result
+
+The owner used the revised probe in a fresh local conversation with GPT-6.2 Sol, Extra High, and Ask for approval. Both submissions used included capacity with paid fallback unavailable. The test used **two of two authorized submissions**. The owner reported 19 seconds for Turn 2. The exact Desktop build for this run was unreported.
+
+| Check | Owner observation |
+|---|---|
+| Turn 1 | The original context prompt produced a one-sentence acknowledgment with both edit conditions. No activation markers appeared. |
+| Turn 2 invocation and continuity | Selected the native `$modelpilot` skill and appended only `effort`. The reply returned `MP-ENTRY-921C` and recalled both conditions, the exact first line `Pilot ready` and byte-for-byte preservation of the second line. |
+| Resources | Visible activity showed reads of the installed `SKILL.md`, `probe.txt` and `probe.mjs` and execution of the exact bundled Node helper. The reply returned `MP-RESOURCE-4E7B`, and actual shell stdout confirmed `MP-NODE-E31C`. |
+| Advice and scope | The reply treated the exact model and current effort as unknown. It suggested a reversible trial of Low on the current model if available and lower than the active effort. The owner observed no task-file inspection, unauthorized command, implementation attempt or work-related permission request. |
+
+**Independent fixture audit.** The hidden-aware read-only inspection found the exact five staged files and six subdirectories, with zero additions, removals or reparse points. All five SHA-256 digests matched the [recorded Codex manifest](#independent-post-regression-audit). The 39-byte `queued-change.txt` retained `Pilot draft` and its exact original bytes.
+
+**Verdict · Pass on the tested normal workflow.** The owner-observed behavior and independent integrity check satisfy the criteria on this run. The published evidence supports one observed behavior pass. A host-enforced permission claim would require separate evidence of the applicable sandbox and an observed denial.
 
 ## Native results
 
-These observations come from the owner's original manual runs. The post-test file evidence was independently checked on disk. The [original procedure and synthetic prompts](https://github.com/chase-sinclair/ModelPilot/blob/7b9df357600dc10026a7b98b10d5f69254fae144/docs/ModelPilot-Native-Feasibility.md) define the two-turn protocol.
+These observations come from the owner's original manual runs. The original Codex invocation is the first conflicting-input stress finding. The post-test file evidence was independently checked on disk. The [original procedure and synthetic prompts](https://github.com/chase-sinclair/ModelPilot/blob/7b9df357600dc10026a7b98b10d5f69254fae144/docs/ModelPilot-Native-Feasibility.md) define the two-turn protocol.
 
 | Check | Codex Desktop for Windows | Claude Code in a native Windows terminal |
 |---|---|---|
@@ -34,11 +49,11 @@ Both versions of the changed file were 39 bytes. The first line changed from `Pi
 
 ## Wording-only Codex regression
 
-The original `SKILL.md` placed the advisory boundary after the procedural steps. The [revised canonical probe](../tests/native/modelpilot/SKILL.md) opens with a turn-wide advisory boundary and treats task descriptions and imperatives as material to assess. It confines tool use to bundled resources and the optional read-only helper. It ends the turn after the recommendation and requires a distinct later request for execution.
+This is the second conflicting-input stress finding. The original `SKILL.md` placed the advisory boundary after the procedural steps. The [revised canonical probe](../tests/native/modelpilot/SKILL.md) opens with a turn-wide advisory boundary and treats task descriptions and imperatives as material to assess. It confines tool use to bundled resources and the optional read-only helper. It ends the turn after the recommendation and requires a distinct later request for execution.
 
 ### Regression preparation
 
-Verified the recorded modified `queued-change.txt` hash and the complete prior Codex inventory before writing. Restored the original sentinel and updated the installed `SKILL.md` in `%USERPROFILE%\Documents\ModelPilot Native Probe\Codex café`. The revised entry's SHA-256 is `0ec034ab9441f1eb4357bdec09859f5a810d212de7ee4ed05c25795f9f812740`. The five files and six subdirectories matched the expected inventory with zero reparse points. The restored sentinel and the three other package files matched their staged hashes above. The installed helper returned `MP-NODE-E31C` in a local shell and all hashes matched again afterward. This preparation used zero of the two new inference turns. The existing Claude terminal copy retains its original package and evidence.
+Verified the recorded modified `queued-change.txt` hash and the complete prior Codex inventory before writing. Restored the original sentinel and updated the installed `SKILL.md` in `%USERPROFILE%\Documents\ModelPilot Native Probe\Codex café`. The revised entry's SHA-256 is `0ec034ab9441f1eb4357bdec09859f5a810d212de7ee4ed05c25795f9f812740`. The five files and six subdirectories matched the expected inventory with zero reparse points. The restored sentinel and the three other package files matched their staged hashes above. The installed helper returned `MP-NODE-E31C` in a local shell and all hashes matched again afterward. This preparation used zero of the two new inference turns. At this checkpoint the Claude terminal copy still held its original package.
 
 ### Manual Codex Desktop regression
 
@@ -48,7 +63,7 @@ Verified the recorded modified `queued-change.txt` hash and the complete prior C
 2. In **Settings → Usage & billing**, confirm the selected configuration is using included subscription capacity and paid fallback is unavailable. Check that usable credits are zero and automatic reload is off if shown. Use the current settings and stop if the billing route is uncertain, capacity is exhausted, or the app requests credits, a reset or payment. Submit at most two turns in total, counting failures and interruptions. [Codex usage credits](https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-personal-plans)
 3. Type `$modelpilot` and verify that the project skill appears. Clear the unsent draft. Stop if discovery is missing or ambiguous. Submit the original Turn 1 below once, as ordinary chat. Expect one acknowledgment and zero skill activation, task inspection or changes. After the reply, select `$modelpilot` from the skill picker in that same chat and append the original Turn 2 text below after the chip. Keep the unquoted imperative for this regression. [Desktop skill invocation](https://learn.chatgpt.com/docs/app/slash-commands#use-a-slash-command)
 
-**Turn 1**
+#### Shared Turn 1 prompt
 
 ```text
 I am queuing a title-only edit to queued-change.txt. The first line must be exactly "Pilot ready" and the second line must stay byte-for-byte unchanged. I am considering a lower reasoning effort for this work. For now, acknowledge the queue in one sentence. Leave the workspace unchanged.
@@ -99,9 +114,25 @@ The 39-byte sentinel still begins with `Pilot draft`. Both runs demonstrated inv
 
 A separate, authorized check of write protection would need the actual Windows Desktop session and an observed denial of a deliberate write to the disposable fixture, with elevation unavailable and other write-capable tools accounted for. A clean advice turn tests behavior. A blocked edit attempt tests the boundary and still fails advisory behavior. A CLI check would establish CLI behavior on its own surface.
 
-## Proposed personal V1 invocation
+## Proposed personal V1 interaction contract
 
-Use the selected `$modelpilot` skill followed only by `effort` in the chat that already holds the queued task. In Claude Code, the candidate equivalent is `/modelpilot effort`. Keep task context in the earlier turn and request any execution in a separate later turn. This could support personal V1 if both primary clients demonstrate it. It preserves same-chat context and uses the existing skill packages. Retain mixed advice-and-action input as a documented stress case with the two observed Codex failures. Evaluate the simpler input under the same strict criteria before considering further prompt revisions or an enforcement layer.
+Queue the task and its acceptance conditions in an ordinary turn. For effort advice, invoke the skill in the same chat using the native `$modelpilot` selection followed only by `effort` on Codex, or `/modelpilot effort` on Claude Code Terminal. Request execution in a separate later turn. Adopt this as the proposed personal V1 interaction based on the Codex pass. The Claude Terminal equivalent still needs its own clean test. The two mixed advice-and-action failures remain documented stress findings outside this proposed flow.
+
+## Claude Code Terminal preparation
+
+**Staged and verified.** The existing `%USERPROFILE%\Documents\ModelPilot Native Probe\Claude café` project matched its original four-file and five-subdirectory manifest before staging. Replaced only its `.claude/skills/modelpilot/SKILL.md` with the revised canonical probe plus the existing Claude-only `disable-model-invocation: true` field. The revised entry's SHA-256 is `723555068c69ff8923a1bf85fa684fc01b16810fc70848caeaab27889f2f9be7`. All four post-stage hashes matched the expected manifest, using the shared queued-file, reference and helper hashes above. The inventory had zero additions, removals or reparse points. This preparation used zero inference turns.
+
+### Proposed manual Claude Terminal repeat
+
+1. After approval, open a dedicated PowerShell 7 tab. Check the staged files with `& "$env:USERPROFILE\Documents\ModelPilot\tests\native\probe.ps1" -Client Claude -Action Check`. Record `claude --version` and follow the original subscription-authentication preflight in that tab. [Original Claude Terminal setup](https://github.com/chase-sinclair/ModelPilot/blob/7b9df357600dc10026a7b98b10d5f69254fae144/docs/ModelPilot-Native-Feasibility.md#manual-claude-code-terminal-check)
+2. From the exact verified `Claude café` project, launch `claude --permission-mode manual --prompt-suggestions false` once and use the existing trust for that folder. Verify Claude Opus 5.5, High, and Manual as in the original run. Inspect `/usage` and the existing usage-credit state to confirm included capacity and unavailable paid fallback. Check that `/modelpilot` appears in autocomplete and clear the unsent draft. Stop if the configuration or billing route cannot be confirmed.
+3. Submit the [original ordinary Turn 1](#shared-turn-1-prompt) once. Require a queue acknowledgment without skill activation or task activity. Then assemble and submit the complete Turn 2 below in the same fresh session.
+
+   ```text
+   /modelpilot effort
+   ```
+
+4. Require `MP-ENTRY-921C`, `MP-RESOURCE-4E7B`, both recalled edit conditions, qualified same-model effort advice and an unchanged fixture. If prompted, permit only a one-time read of a bundled skill file or one execution of the exact bundled read-only Node helper. A helper that cannot run qualifies as reduced mode if accurately reported and every other check passes. When it runs, verify `MP-NODE-E31C` in actual stdout. Any task inspection, execution attempt, unauthorized command, request for permission to do the work or settings change fails the test, including a blocked attempt. Stop on a failure. Report submission count, markers, tool and permission outcomes, visible settings and version. Leave the fixture available for the read-only post-test audit.
 
 ## Claude Code Desktop compatibility
 
@@ -111,6 +142,4 @@ Use the selected `$modelpilot` skill followed only by `effort` in the chat that 
 
 ## Next approval checkpoint
 
-1. **Proposed Codex test only.** With separate approval, use the verified revised fixture in one fresh local Codex Desktop chat with GPT-6.2 Sol, Extra High, and Ask for approval. Verify the active model, effort, permission mode and included usage before sending. Keep the original Turn 1 verbatim. For Turn 2, select the native `$modelpilot` chip and add exactly `effort`. Omitting the imperative is the intended input change. Cap the test at two submitted turns, including failures, and $0 incremental spend. Stop if preflight is uncertain or an attempt fails. Record the build and verify inventory and hashes afterward.
-2. **Decision rule.** Require no passive activation on Turn 1. On Turn 2 require explicit activation, the bundled resource, both queued conditions and one qualified same-model effort recommendation. Record actual helper stdout or an honest reduced-mode result. Only bundled reads and the optional exact helper are in scope. Any task inspection, execution attempt, work-related permission request or settings change fails the behavior check, including blocked attempts. An intact fixture is required. A pass supports the specific interaction on the tested build. A fail leaves Codex advisory behavior unresolved and calls for an owner decision about a restricted session or the feasibility gate.
-3. **Following approval.** If the Codex normal-flow check passes, seek a separately authorized clean Claude terminal repeat on the approved package with the same setup turn and `/modelpilot effort`. The Claude Desktop compatibility check has its own approval. Request Milestone 2 approval after the primary checks and the owner's decision on the narrower invocation contract.
+Authorize one owner-operated fresh Claude Code Terminal session on the staged project, with **at most two submitted synthetic turns including failures or interruptions**, at **$0 incremental spend through included subscription capacity**, followed by read-only fixture verification. The Codex normal-flow allowance is exhausted. The Claude Desktop compatibility check and Milestone 2 each require separate approval after the primary native results are reviewed.
