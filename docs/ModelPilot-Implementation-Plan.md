@@ -1,6 +1,6 @@
 # ModelPilot implementation plan
 
-**November 25, 2026 · Personal Windows pilot · Approved through Phase 2.** The owner approved the four-milestone direction, accepted the [Phase 1 evidence register](../catalog/coverage.md) and the Phase 2 local findings, and will conduct the [two native smoke checks](ModelPilot-Native-Feasibility.md) manually. Both disposable copies are verified and staged. Milestone 2 awaits approval.
+**November 25, 2026 · Personal Windows pilot · Phase 2 results assessed.** The owner approved the four-milestone direction and accepted the [Phase 1 evidence register](../catalog/coverage.md). The [manual native results](ModelPilot-Native-Feasibility.md) confirmed discovery on both hosts, a Codex advisory-only failure, and a Claude protocol deviation. Both disposable copies are preserved. Milestone 2 awaits approval.
 
 Start with one canonical skill, structured source-linked intelligence, recommendation instructions and lightweight data utilities. Test native interaction early. Add targeted decision logic only if observed behavior warrants it. Deliver explicit key-free metadata refresh for personal V1.
 
@@ -13,7 +13,7 @@ The [product brief](../ModelPilot-Skill-V1-Codex-Handoff.md) and [architecture r
 | B1 · Advisory usefulness earns investment | Start with an exploratory comparison with ordinary web-enabled advice and the pinned Model Picker on each host. Prioritize useful actions, grounded uncertainty, manageable overhead and zero critical errors. An engine ablation is conditional. A later downstream study would be needed for savings or task outcomes. |
 | B2 · Two primary clients, one secondary check | Full validation on Codex Desktop for Windows and native Claude Code in a Windows terminal. A separate Codex CLI smoke result has its own label. Codex is the sole developer. Neither host is a dependency of the other. Other OSes, WSL, IDE and cloud surfaces have no acceptance claim. |
 | N1 · Data can change without a skill reinstall | Trusted local import is the first increment. V1 also needs an explicit key-free refresh of permitted metadata plus automatic **local** age checks during advice. Reviewed evidence can be imported independently. New identities start with unknown performance. No hosted service, background poll or network research during ordinary ModelPilot advice. |
-| N2 · Four initial inference turns | The owner approved two per primary client during Phase 2, including failed turns, using included allowances only at $0 incremental spend. The preflight used zero turns. Codex CLI smoke, full native checks, comparative evaluation and repeats need separate allowances. |
+| N2 · Four initial inference turns | The owner approved two per primary client during Phase 2, including failed turns, using included allowances only at $0 incremental spend. The manual run submitted five turns, including an accidental interrupted Claude invocation, with no incremental spend observed. Any new native inference needs a separate allowance. |
 | Scope and authority | Advise when invoked. Default to the current host and task. Honor next, effort only, explicit compare and explicit/configured cross-host intent. Suitability and risk precede efficiency. Staying, a reversible effort trial, conditional advice, or abstention can each be the best response. The developer makes any change. |
 | Deferred | Antigravity, UI, hooks, telemetry, auto-switching, quota inspection, user accounts, automatic context transfer, multi-agent orchestration, broad leaderboards and hosted infrastructure. Artificial Analysis data, API and MCP are excluded absent appropriate written rights and a new scope decision. [Data platform terms][aa] |
 
@@ -71,7 +71,7 @@ Approve the next milestone as a unit where practical. Later scoped installation,
 
 **Phase 1 — Evidence coverage and source permissions.** The [initial catalog and source permissions](../catalog/coverage.md) documents two candidate identities per host, the owner-reported coverage counts, one bounded effort trial per host, and the limits on measurements and automated refresh. Both hosts have actionable guidance and an abstention boundary. Broader research is optional when a real decision requires it.
 
-**Phase 2 — Minimal native feasibility.** The owner approved the [exact project destinations and four-turn allowance](../catalog/coverage.md#permission-request-for-phase-2-native-feasibility). Both disposable packages passed local resource, Node, inventory and integrity checks and remain staged for owner use. The owner authorized saving Claude Code folder trust for the exact verified Claude probe directory. The [per-client record and manual prompts](ModelPilot-Native-Feasibility.md) cover the pending invocation, same-session context, permissions and advisory checks. The first automated preflight consumed zero turns.
+**Phase 2 — Minimal native feasibility.** Both primary clients discovered the project skill and recalled the queued acceptance conditions. Codex Desktop edited the queued file during its advisory turn. Claude Code preserved its files, with interrupted Node execution and an additional invocation outside the prescribed sequence. The [per-client record](ModelPilot-Native-Feasibility.md) documents the verified file change, turn count and proposed wording-only regression. Both disposable copies remain available for review.
 
 ### Milestone 2 — Functional skill and explicit refresh
 
@@ -115,7 +115,7 @@ A downstream study would need its own approval and budget. A possible design is 
 
 ## 6. Current decision and handoff
 
-The evidence pass supports an instructions-led pilot on both hosts. The [manual native tests](ModelPilot-Native-Feasibility.md#manual-codex-desktop-check) are the next checkpoint before Milestone 2 approval. The Phase 2 allowance still has two turns available per client, subject to its included-usage and settings restrictions. Assess the incoming observations and verify both fixture copies before cleanup.
+Resolve the advisory-only failure with a [focused probe regression](ModelPilot-Native-Feasibility.md#smallest-corrective-probe-and-retest) before requesting Milestone 2 approval. The original inference allowance is exhausted. Approve the exact fixture reset or removal and the next turn cap separately. Claude Code Desktop is a proposed optional Windows surface that can be evaluated with the same Claude package in its own [independent check](ModelPilot-Native-Feasibility.md#claude-code-desktop-compatibility).
 
 Keep the approved discovery refresh scope for the functional prototype. After the functional skill is built, revisit how to keep substantive performance and effort evidence current. That review is outside Phase 2 and does not gate native feasibility.
 [aa]: https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf

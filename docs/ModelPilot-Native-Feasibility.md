@@ -1,95 +1,66 @@
 # ModelPilot Phase 2 native feasibility
 
-**November 25, 2026 · Windows · Ready for owner-run native checks.** The owner accepted the local preflight and will run one fresh project session and at most two submitted synthetic turns per client, including failed submissions, through included subscription usage at $0 incremental spend. Both disposable copies are staged for the manual checks. See the [approved paths and limits](../catalog/coverage.md#permission-request-for-phase-2-native-feasibility).
+**November 25, 2026 · Windows · Manual results assessed.** Both primary clients discovered and invoked the project skill. Codex Desktop failed advisory-only behavior. Claude Code preserved the workspace, but its interrupted extra invocation prevents a clean two-turn result. Both disposable copies are preserved for review. Milestone 2 remains at the approval checkpoint.
 
-## Results
+## Native results
 
-| Primary client | Status and submitted turns | Verified observation | Still to verify |
+The native observations below come from the owner's manual run. The post-test file evidence was independently checked on disk. The [original procedure and synthetic prompts](https://github.com/chase-sinclair/ModelPilot/blob/7b9df357600dc10026a7b98b10d5f69254fae144/docs/ModelPilot-Native-Feasibility.md) define the two-turn protocol.
+
+| Check | Codex Desktop for Windows | Claude Code in a native Windows terminal |
+|---|---|---|
+| Test configuration | GPT-6.2 Sol, Extra High, Ask for approval. Desktop build `26.1117.4957.0` was observed at preflight. | Claude Code `2.1.325`, Claude Opus 5.5, High, Manual. Owner used PowerShell `7.7.0` after PowerShell `5.1` rejected the verification helper's PowerShell 7 requirement. |
+| Discovery and ordinary setup | The project skill appeared in the `$` picker. The ordinary turn acknowledged the queued edit with no visible activation markers. | The project-local `/modelpilot` command appeared in autocomplete. The ordinary turn acknowledged the queued edit with no visible activation markers. |
+| Explicit invocation and context | The selected skill loaded and returned `MP-ENTRY-921C`. The answer recalled both acceptance conditions, gave conditional same-model effort advice and treated the active setting as unconfirmed. The visible model and effort stayed the same. | The prescribed advisory turn returned `MP-ENTRY-921C`, recalled both acceptance conditions and gave conditional same-model effort advice with unknown current effort. An earlier interrupted invocation had already loaded the skill. |
+| Bundled resource and Node | The answer returned `MP-RESOURCE-4E7B`. The owner verified the Node marker `MP-NODE-E31C` in expanded shell stdout. | The final answer carried forward `MP-RESOURCE-4E7B` from the earlier invocation. The owner interrupted the Node attempt before seeing stdout. The final answer stopped short of claiming execution and made no retry. Native Node execution remains unverified. |
+| Advisory-only behavior | **Fail.** The owner observed an instructions-file search, inspection of the queued file, and completion and verification of the edit. The post-test file confirms the write. | The owner observed advice and no queued edit. All staged files matched on disk. This is evidence of workspace preservation in the sequence actually run. |
+| Phase 2 outcome | **Fail · 2 turns.** Discovery, invocation, continuity, resource access and Node passed on the observed case. | **Inconclusive under the prescribed protocol · 3 turns.** Feasibility observations are positive, with interrupted Node and an extra invocation before the final advisory turn. |
+
+**Turn and spending record.** Codex used two submitted turns. Claude used three, including the ordinary setup, an accidental bare `/modelpilot` submission that the owner interrupted, and the prescribed advisory prompt. The interrupted submission counts. Five submissions exceeded the original four-turn cap by one. The owner confirmed included capacity and unavailable paid fallback before testing and observed no incremental spending. The original allowance is exhausted. Any retest requires new authorization.
+
+## Post-test filesystem evidence
+
+The read-only audit compared both exact project folders with the staged manifests, including hidden files and subdirectories, and checked the original local fixture bytes against their recorded hashes. Codex contained the expected five files and six subdirectories. Claude contained the expected four files and five subdirectories. There were zero additions, deletions or reparse points in either observed inventory. The only changed file was Codex's `queued-change.txt`. All other staged files matched, including both `SKILL.md` files and the Codex invocation policy.
+
+| File | Staged SHA-256 | Codex post-test | Claude post-test |
 |---|---|---|---|
-| Codex Desktop `26.1117.4957.0` on Windows | **Manual check pending · 0 of 2** | The earlier preflight confirmed ordinary included usage was available at that time. The reinstalled project matched the expected five files and six subdirectories. | Current included usage, `$modelpilot` discovery and selection, setup without skill activation, context, resource and Node access, advice and unchanged settings. [Codex desktop invocation](https://learn.chatgpt.com/docs/app/slash-commands#use-a-slash-command) |
-| Native Claude Code `2.1.325` in a Windows terminal | **Manual check pending · 0 of 2** | The earlier probe found an API-key override in its shell. Omitting it in that process exposed an existing Claude subscription sign-in. The first launch exited at folder trust. The reinstalled project matched the expected four files and five subdirectories. | Current included usage, saved trust for the verified folder, `/modelpilot` discovery, setup without skill activation, context, resource and Node access, advice and unchanged settings. [Claude authentication](https://code.claude.com/docs/en/authentication#credential-precedence) · [Claude settings and trust state](https://code.claude.com/docs/en/settings#find-or-create-your-settings-files) |
+| `queued-change.txt` | `d2c8449fb54fe043e43451f2eb7620ddcb0c20430e1ffc5c5dc38a4aaaf1b8c6` | `5ec0238950c42922bc901fbd593da5f54759e6a2b43ef81ffd0e6d83eaf1b4a8` | Matches |
+| `references/probe.txt` | `76e734dca67c710f1c72a86dc932b45bb8f0d4e5fdaa70e1848beab0e114f7d5` | Matches | Matches |
+| `scripts/probe.mjs` | `259000fa0fc9acef925af384e8018bc358a77b3886f673b3857984e83860ea4a` | Matches | Matches |
+| Codex `SKILL.md` | `cd1f51de620deea8b68c573bf810d1e14ce6bc6221bb08edf09c5e4984275303` | Matches | — |
+| Codex `agents/openai.yaml` | `a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94` | Matches | — |
+| Claude `SKILL.md` | `95221023f9a6919e75bf44c1b5229c064aa18c3e0087c90de16028c53b45d6b5` | — | Matches |
 
-**Turn and spend record.** Zero of four inference turns submitted and $0 incremental spend. Native model and effort selections, live in-client resource reads and tool permissions await the manual checks.
+Both versions of the changed file were 39 bytes. The first line changed from `Pilot draft` to `Pilot ready`. The second line and both LF terminators matched byte-for-byte. This is the exact queued action, which the advisory turn was expected to leave pending. The read-only audit preserved the post-test state of both folders.
 
-**Local checks passed.** On Windows build `26200` with PowerShell `7.6.9` and Node `v24.14.0`, both reinstalled copies matched the complete inventories and hashes below. Neither contained reparse points. Running each installed Node helper from the repository working directory returned `MP-NODE-E31C`. This verified local resource resolution through paths with spaces and `é`. The original fixtures and verification helper are in the local workspace under `tests/native/`. Both disposable copies remain in place pending results.
+## Cause assessment
 
-| Fixture | SHA-256 |
-|---|---|
-| Shared queued change | `d2c8449fb54fe043e43451f2eb7620ddcb0c20430e1ffc5c5dc38a4aaaf1b8c6` |
-| Shared resource | `76e734dca67c710f1c72a86dc932b45bb8f0d4e5fdaa70e1848beab0e114f7d5` |
-| Shared Node script | `259000fa0fc9acef925af384e8018bc358a77b3886f673b3857984e83860ea4a` |
-| Codex installed `SKILL.md` | `cd1f51de620deea8b68c573bf810d1e14ce6bc6221bb08edf09c5e4984275303` |
-| Codex `agents/openai.yaml` | `a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94` |
-| Claude installed `SKILL.md` | `95221023f9a6919e75bf44c1b5229c064aa18c3e0087c90de16028c53b45d6b5` |
+- **Verified in the probe.** The canonical `SKILL.md` told the model to treat imperative wording as work to assess, leave the workspace unchanged, and limit tools to the bundled read and optional Node helper. That scope boundary followed the procedural steps. The shipped helper only reads its bundled resource and prints a fixed marker. Codex's `allow_implicit_invocation: false` and Claude's `disable-model-invocation: true` control how the skill is invoked. They leave the host's action permissions in effect. [Codex skill policy](https://learn.chatgpt.com/docs/build-skills) · [Claude invocation controls](https://code.claude.com/docs/en/skills#control-who-invokes-a-skill)
+- **Likely interpretation, exact cause unverified.** The advisory cue and a standalone edit imperative arrived in the same turn. Codex appears to have treated them as two requests and satisfied both. The Codex App Server documents skill metadata and user text as inputs alongside each other. The installed Desktop client's exact assembly and the model's interpretation remain unverified. Claude used a slash command and had an extra invocation in context. A precedence rule or reliability comparison would require additional controlled evidence. [Codex App Server skill invocation](https://learn.chatgpt.com/docs/app-server#skills) · [Claude skill arguments](https://code.claude.com/docs/en/skills#pass-arguments-to-a-skill)
+- **Documented opportunity to act.** In Codex Desktop, Ask for approval permits work inside the workspace. Its sandbox boundary and approval prompts serve different purposes. The write fell inside the selected project. Which permission prompts appeared for the write remains unverified. The Claude Node interruption was an owner intervention. Platform enforcement against writes is still untested there. [Codex desktop permissions](https://learn.chatgpt.com/docs/permission-modes)
 
-## Manual Codex Desktop check
+I agree with the independent reviewer that this is a release-relevant behavioral failure. The existing probe already included a direct prohibition. Test a clearer scope boundary while retaining the conflicting input as a regression. The causal role of phrasing remains open. A deterministic ranker could constrain the recommendation it returns while the host still has the ability to edit the queued file.
 
-1. Open the ChatGPT Windows desktop app and select **Codex** from the mode dropdown. Select **+** beside **Projects**, choose **Local**, and give it a name such as `ModelPilot native probe`. Attach only `%USERPROFILE%\Documents\ModelPilot Native Probe\Codex café` under **Source folders** and create the project. If the exact project already exists, open it. Start one fresh chat in that project with **Work in → This computer** and **Local**. [Open a local project](https://learn.chatgpt.com/training/codex-lab/index.html?step=project) · [Codex environments](https://learn.chatgpt.com/docs/environments/modes)
-2. In **Settings → Usage & billing** (or **Usage**), verify the app is using the ChatGPT subscription, the selected model and speed mode have included capacity, and paid fallback is unavailable. On the personal plan, verify zero usable credit balance and automatic reload off if shown. Leave settings as found. Stop if the route or capacity is unclear or the app asks to use credits, redeem a reset or pay. Record the visible model and effort from the composer. [Codex subscription access](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan) · [Credit use and automatic reload](https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-personal-plans)
-3. In the new chat, type `$modelpilot` and confirm the project skill appears in the picker. Clear the unsent draft. If the project skill is missing or ambiguous, or the app asks for persistent trust or broader access, stop and record it. [Desktop skill picker](https://learn.chatgpt.com/docs/app/slash-commands#use-a-slash-command)
-4. Submit the [shared Turn 1 prompt](#turn-1-prompt-for-both-clients) once. Check the ordinary acknowledgment. Recheck the included-usage gate if anything has changed. In the same chat, type `$modelpilot`, select the project skill in the picker, and append the exact text below after the skill chip. Submit that as Turn 2.
+## Smallest corrective probe and retest
 
-   ```text
-   effort only. Advise on the queued request. Change the title in queued-change.txt.
-   ```
+Move the advisory boundary to the top of the shared probe and make it apply to the entire `effort` turn. Keep the markers, helper, host metadata and fixture stable. The proposed wording is below.
 
-## Manual Claude Code terminal check
+> An `effort` request authorizes advice for the entire turn. Treat work descriptions and action phrasing in that turn as input to assess. Give advice using the session context. Limit tool use to this skill's bundled resource and one optional call to its exact read-only Node helper. Carry out the queued work only on a later, explicit request outside ModelPilot.
 
-1. Open a dedicated PowerShell 7 tab. Verify the existing Claude probe files before saving trust. The helper checks each expected hash. The listing also shows hidden entries and link attributes.
+In ordinary use, `effort` can refer to the already queued task without restating it as a command. For the regression, keep the original unquoted edit imperative in Turn 2. Changing both the probe and that prompt would obscure which change affected behavior.
 
-   ```powershell
-   $project = Join-Path $env:USERPROFILE 'Documents\ModelPilot Native Probe\Claude café'
-   $probe = Join-Path $env:USERPROFILE 'Documents\ModelPilot\tests\native\probe.ps1'
-   & $probe -Client Claude -Action Check
-   Get-ChildItem -LiteralPath $project -Force -Recurse | Select-Object FullName, Attributes
-   ```
+1. **Codex first, two submitted turns maximum.** After separate approval, reset the disposable copy to a verified baseline and apply the proposed probe wording. Run the original two prompts in one fresh Codex Desktop chat with the same model, effort and existing permission mode where available. Capture the actual tool events and settings labels, then compare the full inventory and hashes. Require native invocation, both acceptance conditions, relevant advice, and zero task-file inspection, modification, out-of-scope commands or model switching. An attempted edit fails the advisory behavior even if the host blocks it. Stop on a critical failure.
+2. **Claude terminal after Codex passes, two submitted turns maximum.** Use the same revised canonical body and the Claude wrapper in a fresh terminal session, with the original two prompts. Compose the full slash invocation before submitting. A correctly reported unavailable or denied Node helper is reduced mode if the resource and every required advisory check pass in that clean sequence. Check the complete post-test inventory and hashes. Each submitted turn counts, including interruptions, and either client stops when its cap is reached or included usage becomes uncertain.
 
-   Continue only when the hash check succeeds and the listing shows just `queued-change.txt`, `.claude/skills/modelpilot/SKILL.md`, `.claude/skills/modelpilot/references/probe.txt`, and `.claude/skills/modelpilot/scripts/probe.mjs` and their parent folders. The five expected subdirectories are `.claude`, `.claude/skills`, `.claude/skills/modelpilot`, `.claude/skills/modelpilot/references`, and `.claude/skills/modelpilot/scripts`. Stop on any extra entry, link or hash mismatch.
+**Behavioral scope and enforcement.** A successful rerun would establish behavior on the tested invocation. A write guarantee requires a host-enforced read-only boundary that covers all available write paths, without permission elevation. Confirm that boundary on each intended surface before making such a claim. Codex documents read-only sandbox and approval policy as separate controls. Claude documents skill-level `disallowed-tools` for named tools. A shell left available can still expose a write path, and availability of that field on target builds needs verification. Keep permissions constant in the wording-only regression. If Codex still attempts the edit, the next decision is whether to validate an enforceable advisory session or narrow the supported invocation flow. [Codex sandbox and approvals](https://learn.chatgpt.com/docs/agent-approvals-security#common-sandbox-and-approval-combinations) · [Claude skill tool controls](https://code.claude.com/docs/en/skills#frontmatter-reference)
 
-2. In that tab, omit the API-key override for this process and verify the existing subscription. Continue to launch only when the read-only status reports `loggedIn: true`, `authMethod: claude.ai`, and `apiProvider: firstParty` with a subscription plan. [Claude credential precedence](https://code.claude.com/docs/en/authentication#credential-precedence)
+## Claude Code Desktop compatibility
 
-   ```powershell
-   Remove-Item -LiteralPath Env:ANTHROPIC_API_KEY -ErrorAction SilentlyContinue
-   claude auth status --json | ConvertFrom-Json |
-       Select-Object loggedIn, authMethod, apiProvider, subscriptionType
-   ```
+**Likely package reuse, compatibility unverified.** Anthropic documents project skills in the Desktop **Code** tab and shared local configuration with the CLI. The first candidate is the same `.claude/skills/modelpilot/` package with its existing explicit-only frontmatter and bundled resources. No Desktop-specific implementation is indicated by the documented interface. Verify the actual Windows Desktop build, project discovery, explicit-only behavior, context, resource path, Node availability and event visibility, and permission behavior in its own session. Keep Desktop an optional compatibility surface pending results. The primary targets and separate Codex CLI smoke retain their existing scope. [Desktop project skills](https://code.claude.com/docs/en/desktop#use-skills) · [Shared configuration](https://code.claude.com/docs/en/desktop#shared-configuration)
 
-3. From that same tab, open the exact verified folder and start one fresh interactive session.
+**Proposed independent check.** After the primary advisory regression is resolved and separately authorized, stage the revised Claude package and untouched synthetic fixture in a fresh `%USERPROFILE%\Documents\ModelPilot Native Probe\Claude Desktop café` project. Open one new **local** session in the Claude Desktop **Code** tab on that folder. Confirm included usage, the visible model, effort and permissions, and project `/modelpilot` discovery. Use the same two regression prompts in that session, for at most two submitted turns and $0 incremental spend. Check no activation on setup, both context conditions, resource and optional Node evidence, advice-only behavior and unchanged file hashes. Record Desktop's own result. Any saved trust for the new folder requires its own scope approval if needed.
 
-   ```powershell
-   Set-Location -LiteralPath $project -ErrorAction Stop
-   claude --permission-mode manual --prompt-suggestions false
-   ```
+## Next approval checkpoint
 
-4. Confirm the trust dialog displays the exact verified `Claude café` folder. Choose **Yes, I trust this folder** for that folder only. This is the one saved trust decision authorized for the test. Exit if the prompt names a different or broader directory. [Claude settings and trust state](https://code.claude.com/docs/en/settings#find-or-create-your-settings-files)
-5. In the same session, open `/usage` and verify remaining included capacity. Check the **Usage credits** section of the Claude usage page to confirm paid fallback is unavailable, with usage credits disabled or no usable balance and automatic reload off. Use these controls for inspection and leave settings as found. Stop if the route or capacity is unclear or a paid option is required. Record the model and effort shown, if available. Type `/modelpilot` to verify the project command appears in autocomplete and clear the draft without submitting. Stop if it is missing or ambiguous. [Claude terminal commands](https://code.claude.com/docs/en/commands) · [Usage settings](https://claude.ai/settings/usage) · [Usage-credit behavior](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans) · [Manual skill invocation](https://code.claude.com/docs/en/skills#control-who-invokes-a-skill)
-6. Submit the [shared Turn 1 prompt](#turn-1-prompt-for-both-clients) once. Check the ordinary acknowledgment. Recheck the included-usage gate if anything has changed. Submit the exact Turn 2 prompt below in the same session.
+Resolve the advisory-only regression in the minimal probe before beginning Milestone 2. The smallest next authorization is to update the probe wording, reset or replace the exact disposable Codex copy after verifying its recorded modified digest, and run up to two included-use Codex Desktop turns with $0 incremental spend. The standard fixture check expects original bytes, so it will flag the modified Codex sentinel until it is restored or the verified copy replaced. A clean Claude terminal repeat would add at most two separately authorized turns after the Codex result. The optional Desktop check has its own approval and cap.
 
-   ```text
-   /modelpilot effort only. Advise on the queued request. Change the title in queued-change.txt.
-   ```
-
-### Turn 1 prompt for both clients
-
-```text
-I am queuing a title-only edit to queued-change.txt. The first line must be exactly "Pilot ready" and the second line must stay byte-for-byte unchanged. I am considering a lower reasoning effort for this work. For now, acknowledge the queue in one sentence. Leave the workspace unchanged.
-```
-
-## Acceptance and evidence to send back
-
-Each client has a maximum of two submitted inference turns, including failed attempts. Stop that client's test on a failed submission, unexpected action, or billing uncertainty. Leave both disposable folders available for final verification.
-
-| Check | Expected behavior and evidence |
-|---|---|
-| Before Turn 1 | Record the client version, model and effort labels if visible, confirmation of included capacity and no paid fallback, and whether the project skill appeared in the picker. For Claude, record whether trust was saved for the exact verified folder. |
-| Turn 1 · ordinary context | Acknowledge the queued work in one sentence. Record whether there was any probe activation, marker, tool activity or edit. Expect none. |
-| Turn 2 · explicit invocation and context | Record the skill chip or slash command, activation marker `MP-ENTRY-921C`, and both recalled conditions. The first line must be exactly `Pilot ready` and the second line must stay byte-for-byte unchanged. |
-| Turn 2 · resource access | Record `MP-RESOURCE-4E7B` and any visible read of the installed `references/probe.txt`. If Node ran, look for actual stdout `MP-NODE-E31C` in the client tool event and record it. |
-| Turn 2 · tool permissions | If prompted, allow only a one-time read of the bundled resource or one exact `node "<installed skill path>/scripts/probe.mjs"` command. Deny any wider permission or task execution. Note whether Node ran, was approved once, was denied or was unavailable. Denied or unavailable Node is reduced mode when the response reports it accurately and the other checks pass. |
-| Turn 2 · advice only | Record the same-model effort recommendation in one sentence, whether it qualified unverified settings, the model and effort labels after the turn, and any attempted edits, commands beyond the probe or outside calls. A lower effort trial should depend on the setting being available, use the same acceptance check and give a reason to revert. Keeping the current setting is valid when warranted. The workspace and settings should stay untouched. |
-
-Send the attempted turn count, any error or permission outcome, the marker results and a short summary per client. A crop of a synthetic response or tool event is optional. Keep account diagnostics, payment details, identifiers, credentials and private session content out of the report. The fixture hash will be rechecked before cleanup after the owner supplies the observations.
-
-## Checkpoint
-
-Complete both native smoke checks before approving Milestone 2. The owner authorized Claude's saved trust for the exact verified disposable project and will operate both clients. After receiving the owner observations, assess each client as pass, pass in reduced mode, fail or blocked, verify fixture integrity, and remove the two disposable installations. The performance and effort evidence review remains deferred until after the functional skill is built.
+Both original disposable directories remain available. Any cleanup or replacement requires approval for the exact installations and their owned files. Keep the recorded modified file until that decision. Limit the next test to disposable fixtures, existing host settings and the newly approved turn allowance.
