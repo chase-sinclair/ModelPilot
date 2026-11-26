@@ -207,11 +207,17 @@ The read-only audit found the exact four staged files and five subdirectories, i
 
 ### Desktop closeout confirmations
 
-The owner accepted the technical pass and ended preliminary feasibility. The closeout values for the following items are still pending explicit confirmation.
+The owner accepted the technical pass and ended preliminary feasibility. The Milestone 2 review restated these fields with placeholders. The owner can report the actual values independently of the technical pass.
 
-- **Permission state.** Confirm whether the helper approval was limited to the one invocation and whether any persistent tool rule was created. If a folder trust prompt appeared, confirm that any saved trust covered only the verified Desktop project.
-- **Prompt suggestions.** Confirm restoration of the original setting.
-- **Subscription use.** Confirm both submissions used included capacity, paid fallback was unavailable during the run, and incremental spend was $0.
+| Operational detail | Owner confirmation |
+|---|---|
+| Node approval was limited to that invocation | Pending |
+| A persistent tool permission rule was created | Pending yes or no |
+| Saved trust covered only the verified Desktop directory | Pending confirmation or not applicable |
+| Prompt suggestions returned to their original setting | Pending |
+| Both submissions used included capacity | Pending |
+| Paid fallback was unavailable | Pending |
+| Incremental spending was $0 | Pending |
 
 ## Recommendation for Milestone 2
 

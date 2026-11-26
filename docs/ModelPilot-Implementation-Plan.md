@@ -1,6 +1,6 @@
 # ModelPilot implementation plan
 
-**November 25, 2026 · Personal Windows pilot · Functional skill implemented.** The owner accepted both Desktop probe passes and authorized Milestone 2. Both functional packages passed local checks. Native acceptance and comparative evaluation require Milestone 3 approval. Clean Claude Terminal invocation and native helper verification remain release requirements. [Phase 2 results](ModelPilot-Native-Feasibility.md) · [Installation and invocation](../README.md)
+**November 25, 2026 · Personal Windows pilot · Functional candidate accepted.** The owner accepted Milestone 2 and authorized native acceptance preparation. The pinned functional packages passed offline checks. The owner-run native submissions and comparative evaluation each require approval. Clean Claude Terminal invocation and native helper verification remain release requirements. [Phase 2 results](ModelPilot-Native-Feasibility.md) · [Native acceptance procedure](ModelPilot-Native-Acceptance.md)
 
 Start with one canonical skill, structured source-linked intelligence, recommendation instructions and lightweight data utilities. Test native interaction early. Add targeted decision logic only if observed behavior warrants it. Deliver explicit key-free metadata refresh for personal V1.
 
@@ -88,6 +88,8 @@ Approve the next milestone as a unit where practical. Later scoped installation,
 
 **Native release checks.** Record client/version, candidate package, actual permissions and pass/fail/blocked/untested for each required behavior. Obtain approval for a short case-to-turn sheet and any comparator setup or network use. Synthetic scenarios and local fixture tests can share cases where that preserves coverage.
 
+**First native gate.** The prepared functional test allocates four submissions to the two primary clients and up to three further submissions to Claude Desktop compatibility and Codex CLI smoke. It covers effort advice, note scope, citations, context, permission behavior, workspace integrity and actual primary helper stdout. The broader workflow and lifecycle checks below remain release requirements with evidence tracked from their appropriate test surface. [Pinned cases, prompts and allowance](ModelPilot-Native-Acceptance.md)
+
 | Check | Required evidence |
 |---|---|
 | Independent native use | Clean project copy and explicit invocation in Codex Desktop for Windows and native Claude Code terminal for Windows. Check no passive trigger, same-chat context, next/effort-only, explicit compare and cross-host scope, unknown/unsupported settings and no task execution or model switch. |
@@ -120,9 +122,9 @@ A downstream study would need its own approval and budget. A possible design is 
 
 ## 6. Current decision and handoff
 
-The [personal V1 contract](ModelPilot-Native-Feasibility.md#personal-v1-interaction-contract) has normal-flow evidence from both local Desktop probes. The [Desktop closeout confirmations](ModelPilot-Native-Feasibility.md#desktop-closeout-confirmations) remain available for the owner's answers. Recommend separately authorizing Milestone 3 against a pinned functional candidate. Prioritize two-turn native checks on Codex Desktop and Claude Terminal, including actual Terminal helper stdout, before collecting the comparative sample. Claude Desktop remains an additional compatibility surface. The Codex CLI smoke is separately scoped.
+The [personal V1 contract](ModelPilot-Native-Feasibility.md#personal-v1-interaction-contract) has normal-flow evidence from both local Desktop probes. The [Desktop closeout confirmations](ModelPilot-Native-Feasibility.md#desktop-closeout-confirmations) are pending. The [pinned functional acceptance procedure](ModelPilot-Native-Acceptance.md) is staged for owner approval. Start with Codex Desktop and Claude Terminal, then run the scoped compatibility and smoke cases. Comparative collection remains a separate decision after native acceptance.
 
-Keep the approved discovery refresh scope for the functional prototype. After the functional skill is built, revisit how to keep substantive performance and effort evidence current. That review is outside Phase 2 and does not gate native feasibility.
+Once native acceptance passes, revisit a small set of previously reviewed, permitted sources for performance and effort evidence. The discovery catalog is a starting point for source review. Current recommendations are grounded in four qualitative cards and have no admitted matched measurements.
 [aa]: https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf
 [stet]: https://www.stet.sh/blog/gpt-55-codex-graphql-reasoning-curve
 [stet-table]: https://www.stet.sh/benchmarks/gpt-55-codex-graphql-reasoning-curve

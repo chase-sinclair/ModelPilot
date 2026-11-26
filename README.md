@@ -32,7 +32,23 @@ On Codex, select the native skill and append the qualifier. On Claude, enter the
 
 The bundled review covers GPT-6.2 Sol and Astra on Codex and Claude Opus 5.5 and Sonnet 5.5 on Claude Code. Cards cite native support and provider guidance with separate review dates. Confirm what your picker actually offers. The initial catalog has no admitted matched native Windows performance measurements. Advice can suggest a reversible trial and a check, with uncertainty where appropriate. [Coverage and permissions](catalog/coverage.md)
 
-Advice checks local freshness and uses local data. Explicit refresh sends one key-free GET to Models.dev and stores only the permitted discovery projection. It can find identities for later review. Picker eligibility, provider guidance and performance evidence keep their own sources and update paths. Use trusted local imports to replace evidence or reviewed host guidance independently. Keep `.modelpilot/` and private eligibility notes out of version control. [Update commands, state and fallback](skills/modelpilot/references/data.md)
+Advice checks local freshness and uses local data. If the helper is unavailable, advice can cite the dated bundled cards and must disclose that current local updates, including withdrawals, could not be checked. If a decision depends on a local record, verify it before acting. Picker eligibility, provider guidance and performance evidence keep their own sources and update paths. Use trusted local imports to replace evidence or reviewed host guidance independently. Keep `.modelpilot/` and private eligibility notes out of version control. [Update commands, state and fallback](skills/modelpilot/references/data.md)
+
+### Review discovered models
+
+Explicit refresh sends one key-free GET to Models.dev and stores the permitted discovery projection. After a successful refresh, run this in your own PowerShell from the project root to list exact IDs missing a reviewed card. For Claude, use `.claude` in the helper path, `claude` in the state path and `anthropic` for the provider. If you use a state override, use its host subdirectory for `$state`.
+
+```powershell
+$state = '.\.modelpilot\codex'
+$view = node '.\.agents\skills\modelpilot\scripts\modelpilot.mjs' read | ConvertFrom-Json
+$reviewedIds = @($view.guidance.cards | ForEach-Object { $_.modelId })
+$projection = Get-Content -LiteralPath (Join-Path $state 'discovery.json') -Raw | ConvertFrom-Json
+$projection.models |
+    Where-Object { $_.provider -ceq 'openai' -and $_.modelId -cnotin $reviewedIds } |
+    Sort-Object modelId | Select-Object provider, modelId, releaseDate
+```
+
+The count is a review backlog. For additions since a previous refresh, compare exact provider and model IDs with your earlier list or the previous projection in `discovery.last-good.json` immediately after a changed refresh. Another successful check can advance that backup. Keep the list in your review workflow and verify native support and picker eligibility separately.
 
 ## Verification
 
