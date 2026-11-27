@@ -1,6 +1,6 @@
 # ModelPilot implementation plan
 
-**November 25, 2026 · Personal Windows pilot · Normal-flow native gate assessed.** The pinned candidate passed the observed effort workflow on Codex Desktop, Claude Code Terminal and helper-backed Claude Desktop. The CLI smoke and native fallback remain open. The next proposed step is a bounded guidance and evaluation preparation pass. [Phase 2 evidence](ModelPilot-Native-Feasibility.md) · [Functional acceptance results](ModelPilot-Native-Acceptance.md#observed-results)
+**November 27, 2026 · Personal Windows pilot · Helper-backed native acceptance complete.** Codex Desktop and Claude Code Terminal passed primary acceptance on `f7bd999`. Claude Desktop Code passed the compatibility case. The denied-helper test remains host-blocked and standalone Codex CLI compatibility is deferred. [Final V1 acceptance](ModelPilot-V1-Native-Acceptance.md) · [Release status](ModelPilot-V1-Release-Candidate.md)
 
 Start with one canonical skill, structured source-linked intelligence, recommendation instructions and lightweight data utilities. Test native interaction early. Add targeted decision logic only if observed behavior warrants it. Deliver explicit key-free metadata refresh for personal V1.
 
@@ -107,10 +107,10 @@ Prepare two independent local release packages and short install, refresh/import
 
 ## 5. Personal V1 acceptance
 
-- Both primary Windows clients pass their required native behaviors with the shipped version. The Codex CLI smoke has its own result.
+- Both primary Windows clients pass their required helper-backed native behaviors with the tested version. Claude Desktop Code passed as an additional compatibility surface. Standalone Codex CLI compatibility is deferred.
 - Explicit advisory use from current context stays within scope, grounds its recommendations and respects uncertainty. Critical correctness, privacy and safety tests pass.
 - Both independent installations support explicit permitted metadata refresh, trusted evidence updates, local freshness and last-known-good fallback. The user's local profile stays separate.
-- The exploratory comparison reports all outcomes with zero critical errors and gives the owner enough evidence to decide on usefulness. Recurring problems are fixed and any materially affected native checks are repeated under an approved allowance. The documentation supports only the measured claims.
+- Batch 1 records the exploratory advice outcomes and separates comparator scope deviations from clean score comparisons. The owner accepted the limited evaluation and deferred Batch 2. Downstream performance and savings remain unmeasured. [Batch 1 report](ModelPilot-Comparative-Evaluation-Batch-1.md)
 
 ### Optional expanded study
 
@@ -124,7 +124,7 @@ A downstream study would need its own approval and budget. A possible design is 
 
 Both primary clients have normal-flow evidence under the [personal V1 contract](ModelPilot-Native-Feasibility.md#personal-v1-interaction-contract). Batch 1 completed with two clean pairings, five critical overrides and one unresolved pairing. The owner deferred Batch 2 and authorized focused refinements for session controls, final source links and reversible trial advice. The evidence set still has zero admitted measurements. [Batch 1 report](ModelPilot-Comparative-Evaluation-Batch-1.md)
 
-The [V1 release candidate procedure](ModelPilot-V1-Release-Candidate.md) specifies the remaining native checks and proposal for supported scope. New inference and release approval are separate decisions. Earlier [Desktop closeout confirmations](ModelPilot-Native-Feasibility.md#desktop-closeout-confirmations) and Batch 1 paid fallback availability remain open.
+Final native acceptance used eight owner-operated submissions with zero retries and passed all fixture audits. Use the owner-run packaged helper for refresh and reviewed imports. Native refresh shortcut compatibility and denied-helper recovery remain unverified. Publication and real-project installation await owner approval. [V1 release status](ModelPilot-V1-Release-Candidate.md) · [Final operational closeout](ModelPilot-V1-Native-Acceptance.md#operational-closeout)
 
 [aa]: https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf
 [stet]: https://www.stet.sh/blog/gpt-55-codex-graphql-reasoning-curve

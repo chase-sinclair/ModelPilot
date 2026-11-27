@@ -2,18 +2,28 @@
 
 ModelPilot advises on which model or reasoning effort to use for work already discussed in Codex or Claude Code. It uses reviewed local cards and your confirmed options. You make any setting change and request the work separately.
 
-Personal V1 targets local Windows sessions in Codex Desktop and Claude Code Terminal. Claude Desktop Code is a compatibility candidate. Standalone Codex CLI compatibility is deferred. [Release status and acceptance](docs/ModelPilot-V1-Release-Candidate.md)
+Personal V1 passed helper-backed native acceptance in local Windows Codex Desktop and Claude Code Terminal. Local Claude Desktop Code 6.28899.6 passed as an additional compatibility surface. Standalone Codex CLI compatibility is deferred. [Acceptance results](docs/ModelPilot-V1-Native-Acceptance.md) · [Release status](docs/ModelPilot-V1-Release-Candidate.md)
 
 ## Project-local installation
 
-Use Node.js 24 and existing project directories on a local volume. From this checkout, build the package for the client you want to use.
+Use Node.js 24. From the ModelPilot checkout, run the command for your client with the absolute path to an existing project on a local volume. Claude Code Terminal and Claude Desktop Code use the same Claude package when opened on the same project.
 
 ```powershell
 node scripts/package-modelpilot.mjs codex 'C:\work\codex-project'
 node scripts/package-modelpilot.mjs claude 'C:\work\claude-project'
 ```
 
-The builder installs into `.agents/skills/modelpilot` for Codex or `.claude/skills/modelpilot` for Claude Code. Each copy contains its own instructions, cards, helper and notices. The builder refuses an existing target. Open the project in the corresponding native client and select ModelPilot explicitly. The package needs Node for updates and the local helper. It includes [dated offline cards](skills/modelpilot/references/fallback.md) for advisory use when the helper is unavailable.
+The builder installs into `.agents/skills/modelpilot` for Codex or `.claude/skills/modelpilot` for Claude. Each copy includes the instructions, cards, helper and notices. The builder refuses an existing target. Verify the installation from the matching project root. The helper should return JSON with `host` set to `codex` or `claude`.
+
+```powershell
+Set-Location -LiteralPath 'C:\work\codex-project'
+node '.\.agents\skills\modelpilot\scripts\modelpilot.mjs' read
+
+Set-Location -LiteralPath 'C:\work\claude-project'
+node '.\.claude\skills\modelpilot\scripts\modelpilot.mjs' read
+```
+
+Open the installed project in a fresh local Codex Desktop chat, start `claude` in the project root for Terminal, or open that folder in a local Code session in Claude Desktop. Select ModelPilot explicitly. For helper-backed advice, approve the exact packaged `read` command for that action only when prompted.
 
 To update, close the project's active sessions, verify the exact installed `modelpilot` directory, and move that folder to an unused backup location outside skill discovery. Build from the new checkout, then verify `read` with the same state base and reopen the project. Restore the backup to its original path if the target is empty after a failed update. To uninstall, close the sessions and move the installed folder out of skill discovery. Keep the separate `.modelpilot/` state or your override and any eligibility note if you want to use them again. [State and recovery](skills/modelpilot/references/data.md#state-and-recovery)
 
@@ -38,7 +48,9 @@ Use the client's session controls for a trial and keep the prior pair for rollba
 
 The bundled review covers GPT-6.2 Sol and Astra on Codex and Claude Opus 5.5 and Sonnet 5.5 on Claude Code. Cards cite native support and provider guidance with separate review dates. Confirm what your picker actually offers. The initial catalog has no admitted matched native Windows performance measurements. Advice can suggest a reversible trial and a check, with uncertainty where appropriate. [Coverage and permissions](catalog/coverage.md)
 
-Advice checks local freshness and uses local data. If the helper is unavailable, advice can cite the dated bundled cards and must disclose that current local updates, including withdrawals, could not be checked. If a decision depends on a local record, verify it before acting. Picker eligibility, provider guidance and performance evidence keep their own sources and update paths. Use trusted local imports to replace evidence or reviewed host guidance independently. Keep `.modelpilot/` and private eligibility notes out of version control. [Update commands, state and fallback](skills/modelpilot/references/data.md)
+Advice checks local freshness and uses local data. Denying the helper can end the advisory turn, as observed in Claude Code Terminal. If the host keeps the turn active and permits the bundled read, ModelPilot can use the dated cards and must disclose that local updates and withdrawals could not be checked. Verify local state before acting on advice that depends on it. [Denied-helper result](docs/ModelPilot-V1-Native-Acceptance.md#fallback-limitation)
+
+Picker eligibility, provider guidance and performance evidence keep their own sources and update paths. Use trusted local imports to replace evidence or reviewed host guidance independently. Keep `.modelpilot/` and private eligibility notes out of version control. [Update commands, state and fallback](skills/modelpilot/references/data.md)
 
 ### Review discovered models
 
