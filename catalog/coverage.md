@@ -36,6 +36,20 @@ The functional package ships the [reviewed cards](../skills/modelpilot/data/guid
 
 **Refresh observation.** The public endpoint returned HTTP 200 and all four exact IDs in their expected provider blocks. Its 6,914,220-byte response had SHA-256 `7bcfb768c0ee9f3a780c34690f8b1dea73a5aeff7abd0ae11858082b74acdef8`, matching the earlier observation for which a conditional GET returned 304. The four source paths also returned their expected names and release dates. A successful refresh may discover model identities. Native support, account access and performance each need independent evidence. [Endpoint][feed] · [API contract][feed-doc]
 
+## November 27 guidance refinement
+
+The four bundled cards now distinguish the next phase of work and the cost of a bad decision. Sol and Sonnet fit planned work with reliable feedback. Astra and Opus are candidates for a difficult diagnosis, disputed design constraints or consequential verification. Missing context calls for clarification, skipped checks can justify more effort, and a persistent reasoning error after a complete attempt may justify a stronger eligible model. Preserve useful context through an imminent review checkpoint. These are task-fit heuristics and reversible trials. Native support retains its November 24 review date. Each unconditional change still requires current account-specific confirmation. [Bundled cards](../skills/modelpilot/data/guidance.json) · [Codex model guide][codex-models] · [Anthropic guide][claude-guidance]
+
+| Reviewed source | Permitted use and admission decision |
+|---|---|
+| OpenAI's Codex guide and GPT-6.2 release | Use original qualitative notes and link to the provider. The guide supports deeper effort for more planning, analysis or checking and describes its time and token tradeoff. The release's FrontierCode 2.0 comparison uses both models at Max. It supplies no same-model High/Extra High result, and a native-equivalent harness, reviewed row provenance and reuse grant are unestablished. Exclude third-party Artificial Analysis data on the release page. [Guide][codex-models] · [Release][openai-release] |
+| Anthropic's model and effort guide, Opus release and effort study | Use short original guidance and citations. Claude's effort can change verification and tool activity. The Opus 5.5 effort curve is closer to the target than older studies, with 70 shared Terminal-Bench 3.0 tasks, a 128k response cap and restricted network. The public figure leaves the matching Windows client/harness revision and structured redistribution basis unresolved. The release also reports configuration and fallback differences across evaluations. Keep published charts and numerical rows out of the bundle. [Guide][claude-guidance] · [Effort study][claude-study] · [Opus release][claude-release] |
+| Stet's matched Codex curve and newer companion comparison | Link to the results and use the separation of regression passes, review quality and elapsed time when designing checks. The matched curve uses GPT-5.5 and a historical Codex build. The newer listed effort pairs use Haiku or Luna, outside these four cards, with possible harness differences. Neither offers an eligible current pair for this catalog or an established reuse grant for structured rows. [Original study][stet] · [Companion comparison][stet-current] |
+| OptiFlume's Terminal-Bench 2.0 study | Attribution and citation are expressly invited. Keep it link-only for this pilot. Some Opus aggregate results include fallback to Opus 4.8. The remaining configurations still lack pinned client revisions, a comparable workload and an explicit basis for bundling a normalized dataset. Attempted-task list-price cost and timeout-sensitive pass rates cannot establish subscription impact or equal quality. [Study and citation policy][opti-study] · [Run method][opti-board] |
+| EffortMining and ResearchEnvBench | Use linked historical methodology. EffortMining's pinned MIT repository has an inspectable Opus 4.8 pilot and a composite result without a demonstrated advantage. Its headless subtask dispatch and output-token counts address a different decision. ResearchEnvBench's effort sweep uses GPT-5.3-Codex on research environments. Neither gives a matched row for the active cards. [EffortMining pilot][em-pilot] · [Composite result][em-composite] · [License][em-license] · [ResearchEnvBench][research-env] |
+
+**Zero measurements admitted.** Exact configuration and workload compatibility, a clear measurement and denominator, provenance and permitted use are all required. The guide supports manual trials with no numerical quality, time or subscription forecast. Model discovery retains its original field allowlist and separate refresh path. [Evidence rules](../skills/modelpilot/references/data.md#trusted-replacements) · [Comparative evaluation](../docs/ModelPilot-Comparative-Evaluation.md)
+
 ## Permission request for Phase 2 native feasibility
 
 **Phase 2 status, November 25, 2026.** The original check used five submissions against four approved. The wording-only Codex regression used three against two approved. Both Codex conflicting-input attempts failed advisory behavior. The Codex normal-flow test passed with two of two included-use submissions and all five hashes matching the baseline. The Claude Terminal repeat used three submissions against two approved, including an unintended interrupted invocation. Its four hashes matched and its two-turn verdict is inconclusive. The approved Claude Desktop check passed on two of two submissions with native Node stdout and all four fixture hashes matching. The owner concluded preliminary feasibility. Desktop permission and billing confirmations remain open. The original scope request is preserved below. [Phase 2 results and Milestone 2 decision](../docs/ModelPilot-Native-Feasibility.md)
@@ -60,7 +74,15 @@ The functional package ships the [reviewed cards](../skills/modelpilot/data/guid
 [claude-models]: https://code.claude.com/docs/en/model-config#adjust-effort-level
 [claude-guidance]: https://claude.com/resources/articles/claude-model-and-effort-level-in-claude-code
 [claude-study]: https://claude.dev/blog/spending-your-effort/#effort-curves
+[claude-release]: https://www.anthropic.com/claude-opus-5-5
 [stet]: https://www.stet.sh/blog/gpt-55-codex-graphql-reasoning-curve
+[stet-current]: https://www.stet.sh/leaderboard/compare/reasoning-effort
+[opti-study]: https://optiflume.ai/learn/model-benchmark-study
+[opti-board]: https://optiflume.ai/benchmarks
+[em-pilot]: https://github.com/nagisanzenin/effortmining/blob/09090cf7cbca3f6cbf35fe54f018f675bdb49c65/bench/RESULTS.md
+[em-composite]: https://github.com/nagisanzenin/effortmining/blob/09090cf7cbca3f6cbf35fe54f018f675bdb49c65/bench/RESULTS-v2.md
+[em-license]: https://github.com/nagisanzenin/effortmining/blob/09090cf7cbca3f6cbf35fe54f018f675bdb49c65/LICENSE
+[research-env]: https://ijcai.org/proceedings/2026/48
 [openai-release]: https://openai.com/index/introducing-gpt-6-2-astra-sol/
 [feed]: https://models.dev/api.json
 [feed-doc]: https://github.com/anomalyco/models.dev/blob/da91ad2da97bbd82a124cdd58c9e4d946ec16abc/README.md#api

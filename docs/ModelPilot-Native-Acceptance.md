@@ -128,6 +128,8 @@ Across all three runs the owner reported no visible underlying task reads, execu
 
 ## Proposed next stage
 
+The owner approved the refinement and preparation pass after this report. The [comparative runbook](ModelPilot-Comparative-Evaluation.md) records the subsequent candidate, proposed collection allowance and remaining release checks. The results above remain scoped to the first functional candidate.
+
 Prioritize two source-linked decisions for the existing cards. Keep the owner-confirmed model and effort boundary. The public-source revisit supports qualitative guidance for the pilot, with zero new measurement rows admitted.
 
 | Source | Highest-value use | Limit for the pilot |

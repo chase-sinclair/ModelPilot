@@ -124,7 +124,10 @@ A downstream study would need its own approval and budget. A possible design is 
 
 The [personal V1 contract](ModelPilot-Native-Feasibility.md#personal-v1-interaction-contract) has normal-flow evidence from both primary clients on the pinned functional candidate. The [Desktop closeout confirmations](ModelPilot-Native-Feasibility.md#desktop-closeout-confirmations) are pending. The results support preparing the exploratory comparison, with open native and release checks tracked separately.
 
-The targeted source revisit favors qualitative improvements for the four reviewed cards. No matched performance rows were admitted. Review the proposed citation improvement, four realistic cases per host and all-in submission budget before approving any collection. [Next-stage proposal](ModelPilot-Native-Acceptance.md#proposed-next-stage)
+The bounded source review refined all four guidance cards and the fallback. The candidate asks for a direct reviewed link and its review date. The evidence set has zero admitted measurements. Both offline packages passed the 15-test default suite. [Source decisions](../catalog/coverage.md#november-27-guidance-refinement)
+
+The [comparative runbook](ModelPilot-Comparative-Evaluation.md) pins the refined candidate and Model Picker, freezes four synthetic development cases per host and defines matched collection and scoring. The first batch needs 12 advice submissions and 4–12 neutral setups. Collection requires separate approval. Native retests and release checks remain open.
+
 [aa]: https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf
 [stet]: https://www.stet.sh/blog/gpt-55-codex-graphql-reasoning-curve
 [stet-table]: https://www.stet.sh/benchmarks/gpt-55-codex-graphql-reasoning-curve
