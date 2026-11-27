@@ -8,14 +8,20 @@
 |---|---|---|
 | Codex Desktop `next` | Pass | The native `next` case passed with the packaged helper. |
 | Claude Code Terminal `compare` | Pass | The native helper-backed `compare` case passed. |
-| Claude Code Terminal `global` | Core behavior passed with response findings | Cross-host retrieval and eligibility handling were correct. The owner reported minor wording and control-source citation findings. The exact wording and citation details were absent from the supplied summary. |
+| Claude Code Terminal `global` | Core behavior passed with response findings | The helper retrieved the cross-host view and the response kept unconfirmed Codex choices conditional. |
 | Claude Code Terminal `compare` with helper denied | Host-blocked / incomplete | The owner reopened the original neutral parent, which had no prior helper output, and denied the exact packaged Node `read` command. Claude displayed “Interrupted · What should Claude do instead?” The turn ended before a fallback read or recommendation. The owner observed no retry or alternate tool activity. |
+
+### Claude Code Terminal `global` response findings
+
+- “Stay” at Medium was imprecise because High remained active.
+- The answer incorrectly described Medium as the only eligible option. High was also confirmed.
+- The answer omitted the separate effort-control citation.
 
 ## Claude Desktop compatibility
 
 **Pass on Claude Desktop for Windows 6.28899.6, local Code.** The owner reported that the neutral setup returned `Queued` and the native `/modelpilot effort` call executed the exact installed Node helper with `read`. Complete actual stdout showed schema version 1, host `claude`, discovery `not-refreshed`, bundled Opus 5.5 and Sonnet 5.5 guidance, fresh native and qualitative records, and an empty bundled measurement set.
 
-The answer kept Opus 5.5 High pending confirmation that Medium was available and could be applied only for the session. It used Desktop Effort terminology, gave the two existing checks and reasons to restore High, and qualified Medium as an untested trial. The owner verified the visible direct URL and the review date of November 27, 2026. [Cited Anthropic guidance](https://claude.com/resources/articles/claude-model-and-effort-level-in-claude-code)
+The answer kept Opus 5.5 High pending confirmation that Medium was available and could be applied only for the session. It referred to both acceptance checks collectively, gave reasons to restore High, and qualified Medium as an untested trial. It used Desktop Effort terminology and displayed the direct URL and review date of November 27, 2026, which the owner verified. [Cited Anthropic guidance](https://claude.com/resources/articles/claude-model-and-effort-level-in-claude-code)
 
 The owner reported that the final screen showed Opus 5.5 High and Manual permissions, with no visible unauthorized activity. The owner confirmed one-time approval of the exact helper. Response time remains unconfirmed.
 
