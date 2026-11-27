@@ -1,6 +1,6 @@
 # Dated offline cards
 
-Use these bundled snapshots when Node or local read permission is unavailable. Confirm current picker access, active effort and native version separately. This path leaves local updates and withdrawals unverified. The trials are qualitative and use the same acceptance check as the current setting.
+Use these dated bundled snapshots when Node or local read permission is unavailable. Confirm current picker access, active effort and native version separately. This path leaves local updates and withdrawals unverified. Skip any known withdrawal and verify local state first if the choice depends on it. The trials are qualitative and use the same acceptance check as the current setting.
 
 | Host and identity | Native support reviewed 2026-11-24 | Model and effort guidance reviewed 2026-11-27 |
 |---|---|---|
@@ -14,5 +14,5 @@ Use the user's picker label and the documented native host. Ultra and Ultracode 
 [codex-models]: https://learn.chatgpt.com/docs/models#pick-a-reasoning-effort
 [codex-fit]: https://learn.chatgpt.com/docs/models#recommended-models
 [codex-catalog]: https://github.com/openai/codex/blob/581161ab41e643d942e1e1b5f561034060bf18e3/codex-rs/models-manager/models.json
-[claude-models]: https://code.claude.com/docs/en/model-config#adjust-effort-level
+[claude-models]: https://code.claude.com/docs/en/model-config
 [claude-guidance]: https://claude.com/resources/articles/claude-model-and-effort-level-in-claude-code

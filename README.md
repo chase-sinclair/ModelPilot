@@ -2,6 +2,8 @@
 
 ModelPilot advises on which model or reasoning effort to use for work already discussed in Codex or Claude Code. It uses reviewed local cards and your confirmed options. You make any setting change and request the work separately.
 
+Personal V1 targets local Windows sessions in Codex Desktop and Claude Code Terminal. Claude Desktop Code is a compatibility candidate. Standalone Codex CLI compatibility is deferred. [Release status and acceptance](docs/ModelPilot-V1-Release-Candidate.md)
+
 ## Project-local installation
 
 Use Node.js 24 and existing project directories on a local volume. From this checkout, build the package for the client you want to use.
@@ -12,6 +14,8 @@ node scripts/package-modelpilot.mjs claude 'C:\work\claude-project'
 ```
 
 The builder installs into `.agents/skills/modelpilot` for Codex or `.claude/skills/modelpilot` for Claude Code. Each copy contains its own instructions, cards, helper and notices. The builder refuses an existing target. Open the project in the corresponding native client and select ModelPilot explicitly. The package needs Node for updates and the local helper. It includes [dated offline cards](skills/modelpilot/references/fallback.md) for advisory use when the helper is unavailable.
+
+To update, close the project's active sessions, verify the exact installed `modelpilot` directory, and move that folder to an unused backup location outside skill discovery. Build from the new checkout, then verify `read` with the same state base and reopen the project. Restore the backup to its original path if the target is empty after a failed update. To uninstall, close the sessions and move the installed folder out of skill discovery. Keep the separate `.modelpilot/` state or your override and any eligibility note if you want to use them again. [State and recovery](skills/modelpilot/references/data.md#state-and-recovery)
 
 ## Invocation
 
@@ -24,9 +28,11 @@ Queue the work and its acceptance conditions in an ordinary turn. Confirm your c
 | Keep the model and advise on effort | `$modelpilot effort` | `/modelpilot effort` |
 | Compare options on the current host | `$modelpilot compare` | `/modelpilot compare` |
 | Compare confirmed options across hosts | `$modelpilot global` | `/modelpilot global` |
-| Update discovery metadata | `$modelpilot refresh` | `/modelpilot refresh` |
+| Request native discovery refresh (compatibility pending) | `$modelpilot refresh` | `/modelpilot refresh` |
 
 On Codex, select the native skill and append the qualifier. On Claude, enter the entire command before sending. Keep the invocation to the request for advice or refresh. The probe's mixed advice-and-edit failures are documented. A separate ordinary request authorizes the queued work after you choose your settings. [Native feasibility results](docs/ModelPilot-Native-Feasibility.md)
+
+Use the client's session controls for a trial and keep the prior pair for rollback. In Claude Code Terminal, use the session-only picker key (`s` by default). Enter or a typed ordinary effort level can save a default. Verify the picker scope on your build and check the effective setting before using it. [Reviewed controls by client](skills/modelpilot/SKILL.md#applying-a-trial)
 
 ## Intelligence and updates
 
@@ -36,7 +42,7 @@ Advice checks local freshness and uses local data. If the helper is unavailable,
 
 ### Review discovered models
 
-Explicit refresh sends one key-free GET to Models.dev and stores the permitted discovery projection. After a successful refresh, run this in your own PowerShell from the project root to list exact IDs missing a reviewed card. For Claude, use `.claude` in the helper path, `claude` in the state path and `anthropic` for the provider. If you use a state override, use its host subdirectory for `$state`.
+Explicit refresh sends one key-free GET to Models.dev and stores the permitted discovery projection. The V1 lifecycle workflow uses the [installed helper in your own terminal](skills/modelpilot/references/data.md). Native `refresh` invocation is a separate compatibility check. After a successful refresh, run this in your own PowerShell from the project root to list exact IDs missing a reviewed card. For Claude, use `.claude` in the helper path, `claude` in the state path and `anthropic` for the provider. If you use a state override, use its host subdirectory for `$state`.
 
 ```powershell
 $state = '.\.modelpilot\codex'

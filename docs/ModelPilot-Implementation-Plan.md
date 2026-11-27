@@ -122,11 +122,9 @@ A downstream study would need its own approval and budget. A possible design is 
 
 ## 6. Current decision and handoff
 
-The [personal V1 contract](ModelPilot-Native-Feasibility.md#personal-v1-interaction-contract) has normal-flow evidence from both primary clients on the pinned functional candidate. The [Desktop closeout confirmations](ModelPilot-Native-Feasibility.md#desktop-closeout-confirmations) are pending. The results support preparing the exploratory comparison, with open native and release checks tracked separately.
+Both primary clients have normal-flow evidence under the [personal V1 contract](ModelPilot-Native-Feasibility.md#personal-v1-interaction-contract). Batch 1 completed with two clean pairings, five critical overrides and one unresolved pairing. The owner deferred Batch 2 and authorized focused refinements for session controls, final source links and reversible trial advice. The evidence set still has zero admitted measurements. [Batch 1 report](ModelPilot-Comparative-Evaluation-Batch-1.md)
 
-The bounded source review refined all four guidance cards and the fallback. The candidate asks for a direct reviewed link and its review date. The evidence set has zero admitted measurements. Both offline packages passed the 15-test default suite. [Source decisions](../catalog/coverage.md#november-27-guidance-refinement)
-
-The [comparative runbook](ModelPilot-Comparative-Evaluation.md) pins the refined candidate and Model Picker, freezes four synthetic development cases per host and defines matched collection and scoring. The first batch needs 12 advice submissions and 4–12 neutral setups. Collection requires separate approval. Native retests and release checks remain open.
+The [V1 release candidate procedure](ModelPilot-V1-Release-Candidate.md) specifies the remaining native checks and proposal for supported scope. New inference and release approval are separate decisions. Earlier [Desktop closeout confirmations](ModelPilot-Native-Feasibility.md#desktop-closeout-confirmations) and Batch 1 paid fallback availability remain open.
 
 [aa]: https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf
 [stet]: https://www.stet.sh/blog/gpt-55-codex-graphql-reasoning-curve

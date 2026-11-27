@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
-import { mkdir, mkdtemp, readFile, realpath, readdir, rm, symlink, unlink, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, realpath, readdir, rename, rm, symlink, unlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { basename, dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -150,6 +150,47 @@ test('packaging refuses to overwrite an existing skill or follow a linked projec
   assert.equal(result.code, 1);
   assert.equal(JSON.parse(result.stderr).error, 'INVALID_PATH');
   assert.deepEqual(await readdir(actual), []);
+});
+
+test('project-local replacement and uninstall preserve reviewed state and neighboring skills', async (t) => {
+  const root = await sandbox(t);
+  for (const host of Object.keys(HOST_DIRECTORIES)) {
+    const project = join(root, `${host} project`);
+    const stateBase = join(root, `${host} separate state`);
+    const env = { MODELPILOT_STATE_DIR: stateBase };
+    await mkdir(project);
+    const original = await pack(project, host);
+    const sibling = join(dirname(original.skill), 'other-skill');
+    await mkdir(sibling);
+    const siblingEntry = join(sibling, 'SKILL.md');
+    await writeFile(siblingEntry, 'unrelated skill');
+
+    const reviewed = join(root, `${host} reviewed guidance.json`);
+    const [retained] = seed.cards.filter((card) => card.host === host);
+    await writeJson(reviewed, { schemaVersion: seed.schemaVersion, cards: [retained] });
+    const imported = await runNode(helper(original, 'import', 'guidance', reviewed), project, env);
+    assert.equal(imported.code, 0, imported.stderr);
+    const state = join(stateBase, host);
+    const livePath = join(state, 'guidance.json');
+    const backupPath = join(state, 'guidance.last-good.json');
+    const live = await readFile(livePath);
+    const backup = await readFile(backupPath);
+
+    await rename(original.skill, join(root, `${host} previous package`));
+    const replacement = await pack(project, host);
+    const result = await runNode(helper(replacement, 'read'), project, env);
+    assert.equal(result.code, 0, result.stderr);
+    const { guidance } = JSON.parse(result.stdout);
+    assert.equal(guidance.origin, 'local');
+    assert.deepEqual(guidance.cards.map((card) => card.modelId), [retained.modelId]);
+
+    await rename(replacement.skill, join(root, `${host} removed package`));
+    assert.deepEqual(await readdir(dirname(replacement.skill)), ['other-skill']);
+    assert.equal(await utf8(siblingEntry), 'unrelated skill');
+    assert.deepEqual(await readFile(livePath), live);
+    assert.deepEqual(await readFile(backupPath), backup);
+    await assert.rejects(readdir(replacement.state), { code: 'ENOENT' });
+  }
 });
 
 test('ordinary read is offline and read-only and excludes private profile and task strings', async (t) => {
@@ -395,6 +436,39 @@ test('a timeout keeps the previous snapshot and a subsequent valid refresh can r
   assert.equal((await loadLayer(layout, 'discovery')).document.source.checkedAt, dayOne().toISOString());
   await refreshDiscovery(layout, { request: async () => response(), now: dayTwo });
   assert.equal((await loadLayer(layout, 'discovery')).origin, 'local');
+});
+
+test('the packaged refresh command reports recovery from the separate state base', async (t) => {
+  const { root, layout } = await setup(t, 'claude');
+  const base = join(root, 'separate refresh state');
+  const env = { MODELPILOT_STATE_DIR: base };
+  const fetchFixture = join(root, 'offline-fetch.mjs');
+  await writeFile(fetchFixture, `globalThis.fetch = async (url, options) => {
+    if (url !== ${JSON.stringify(FEED_URL)} || options.method !== 'GET') throw Error('unexpected request');
+    return new Response(${JSON.stringify(JSON.stringify(feed()))}, {
+      headers: { 'content-type': 'application/json' }
+    });
+  };`);
+  const refresh = ['--import', pathToFileURL(fetchFixture).href, ...helper(layout, 'refresh')];
+  for (let check = 0; check < 2; check += 1) {
+    const updated = await runNode(refresh, root, env);
+    assert.equal(updated.code, 0, updated.stderr);
+    assert.equal(JSON.parse(updated.stdout).models, 2);
+  }
+
+  const state = join(base, 'claude');
+  const backup = await readFile(join(state, 'discovery.last-good.json'));
+  await writeFile(join(state, 'discovery.json'), '{');
+  await writeFile(fetchFixture, 'globalThis.fetch = async () => { throw Error("fixture unavailable"); };');
+  const failed = await runNode(refresh, root, env);
+  assert.equal(failed.code, 1);
+  assert.equal(JSON.parse(failed.stderr).error, 'REFRESH_UNAVAILABLE');
+  assert.equal(JSON.parse(failed.stderr).discovery, 'last-known-good');
+  const read = await runNode(helper(layout, 'read'), root, env);
+  assert.equal(read.code, 0, read.stderr);
+  assert.equal(JSON.parse(read.stdout).discovery.origin, 'last-known-good');
+  assert.deepEqual(await readFile(join(state, 'discovery.last-good.json')), backup);
+  await assert.rejects(readdir(layout.state), { code: 'ENOENT' });
 });
 
 test('an update in progress leaves the active snapshot readable and rejects a second writer', async (t) => {
