@@ -16,12 +16,12 @@
         }
       },
       "guidance": {
-        "fit": "Everyday coding, scoped implementation, and work with a clear verification step.",
-        "effort": "For a bounded task, try High from Extra High if available. Consider Medium when the work has a clear plan and check. The picker may call Low Light.",
+        "fit": "Use Sol for implementation against a settled plan, debugging with a localized reproduction, and turning known findings into a plan. A quick acceptance check makes it practical to try a lighter setting before changing models.",
+        "effort": "Try confirmed High from Extra High for one bounded change. Consider Medium for planned, easily checked work if selectable. Keep deeper effort when the next step still requires comparing explanations or checking interactions across components.",
         "source": {
           "title": "Codex model and reasoning-effort guidance",
           "url": "https://learn.chatgpt.com/docs/models#pick-a-reasoning-effort",
-          "reviewedOn": "2026-11-24"
+          "reviewedOn": "2026-11-27"
         }
       }
     },
@@ -40,12 +40,12 @@
         }
       },
       "guidance": {
-        "fit": "Demanding multistep coding, unresolved architecture tradeoffs, and difficult investigations.",
-        "effort": "Use a confirmed setting suited to the work. Consider higher effort when deeper analysis or checking would help. Ultra dispatches subagents and is outside these trials.",
+        "fit": "Consider Astra when competing design constraints need to be reconciled, a defect spans services, or the evidence supports several plausible explanations with costly consequences if the choice is wrong.",
+        "effort": "Choose a confirmed level that leaves room for comparing hypotheses and independent checks. Reassess effort at the handoff to implementation once the approach and check are established. Ultra dispatches subagents and is outside these trials.",
         "source": {
           "title": "Codex model and reasoning-effort guidance",
-          "url": "https://learn.chatgpt.com/docs/models#pick-a-reasoning-effort",
-          "reviewedOn": "2026-11-24"
+          "url": "https://learn.chatgpt.com/docs/models#recommended-models",
+          "reviewedOn": "2026-11-27"
         }
       }
     },
@@ -64,12 +64,12 @@
         }
       },
       "guidance": {
-        "fit": "Difficult or ambiguous work, especially when verification or edge cases matter.",
-        "effort": "Try Medium from High for one scoped task with an existing check if Medium is selectable. Keep adequate effort for harder verification.",
+        "fit": "Consider Opus for unresolved architecture, subtle failures that persist despite a good reproduction, and consequential review where independent verification and hidden edge cases matter.",
+        "effort": "Try confirmed Medium from High for a scoped implementation with a reliable check. Keep High when the next phase requires deeper verification or finding missed edge cases. Return to High if Medium skips checks or creates rework.",
         "source": {
           "title": "Anthropic model and effort guidance",
           "url": "https://claude.com/resources/articles/claude-model-and-effort-level-in-claude-code",
-          "reviewedOn": "2026-11-24"
+          "reviewedOn": "2026-11-27"
         }
       }
     },
@@ -88,12 +88,12 @@
         }
       },
       "guidance": {
-        "fit": "Routine, bounded engineering work with a reliable acceptance check.",
-        "effort": "Consider a confirmed level suited to the task when the exact model is available. Ultracode is outside these effort trials.",
+        "fit": "Consider eligible Sonnet for routine implementation of an agreed design, a localized bug with clear feedback, or the next bounded piece of work when a handoff is easy.",
+        "effort": "On Sonnet, consider higher confirmed effort if it skipped checks or stopped early. Consider an eligible Opus option when a wrong approach persists despite a complete reproduction and verification. Ultracode is outside these trials.",
         "source": {
           "title": "Anthropic model and effort guidance",
           "url": "https://claude.com/resources/articles/claude-model-and-effort-level-in-claude-code",
-          "reviewedOn": "2026-11-24"
+          "reviewedOn": "2026-11-27"
         }
       }
     }

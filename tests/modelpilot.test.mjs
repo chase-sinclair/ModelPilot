@@ -118,8 +118,13 @@ test('both project packages reuse one body and can read their own resources from
     assert.equal(view.guidance.origin, 'bundled');
     assert.deepEqual(view.evidence.measurements, []);
     const fallback = await utf8(join(layout.skill, 'references', 'fallback.md'));
-    for (const card of localCards) {
-      assert.ok(fallback.includes(card.modelId) && fallback.includes(card.native.source.reviewedOn));
+    for (const [index, card] of localCards.entries()) {
+      assert.ok(fallback.includes(card.modelId));
+      for (const section of ['native', 'guidance']) {
+        const source = card[section].source;
+        assert.deepEqual(view.guidance.cards[index][section].source, source);
+        assert.ok(fallback.includes(source.url) && fallback.includes(source.reviewedOn));
+      }
     }
     await assert.rejects(readdir(layout.state), { code: 'ENOENT' });
   }
